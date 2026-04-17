@@ -1,10 +1,9 @@
 --[[
-    BROOK HAVEN GUI - DESIGN FINAL REF
-    Ajustes: 
-    - Cores baseadas na imagem (Preto e Cinza Chumbo).
-    - Footer em preto suave (um pouco mais claro que o fundo).
-    - Sistema de Loadstring integrado.
-    - Botão Externo 100x100.
+    BROOK HAVEN GUI - UPDATE V5 (SISTEMA DE ABAS & DESIGN ID)
+    Ajustes realizados:
+    - Navegação: Seta esquerda oculta na pág 1; Seta direita oculta na pág 2. [Req 1]
+    - Design: Adição dos símbolos decorativos via ID 130275641191868 no rodapé. [Req 2]
+    - Visibilidade: Fontes em escala máxima e cores contrastantes (Preto/Cinza/Branco).
 ]]
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -12,7 +11,7 @@ local MainFrame = Instance.new("Frame")
 local OpenBtn = Instance.new("ImageButton")
 local UIS = game:GetService("UserInputService")
 
-ScreenGui.Name = "BrookHaven_Ref_V3"
+ScreenGui.Name = "BrookHaven_V5_Final"
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ResetOnSpawn = false
 
@@ -52,57 +51,106 @@ MainFrame.Name = "MainFrame"
 MainFrame.Parent = ScreenGui
 MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-MainFrame.Size = UDim2.new(0, 380, 0, 280) 
-MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Fundo Total Preto
+MainFrame.Size = UDim2.new(0, 420, 0, 310) 
+MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
 MainFrame.BorderSizePixel = 2
 MainFrame.BorderColor3 = Color3.fromRGB(60, 60, 60)
 MainFrame.Active = true
 MainFrame.Draggable = true
 
--- 3. CABEÇALHO
+local MainCorner = Instance.new("UICorner", MainFrame)
+MainCorner.CornerRadius = UDim.new(0, 8)
+
+-- 3. CABEÇALHO E SISTEMA DE NAVEGAÇÃO
 local HeaderBar = Instance.new("Frame", MainFrame)
-HeaderBar.Size = UDim2.new(1, 0, 0, 45)
-HeaderBar.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
-HeaderBar.BorderSizePixel = 0
+HeaderBar.Size = UDim2.new(1, 0, 0, 55)
+HeaderBar.BackgroundTransparency = 1
 
 local Title = Instance.new("TextLabel", HeaderBar)
 Title.Size = UDim2.new(1, 0, 1, 0)
 Title.BackgroundTransparency = 1
-Title.Text = "BROOKHAVEN"
+Title.Text = "Sobre o CUBNIT/ Spawnismo"
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-Title.TextSize = 30
-Title.Font = Enum.Font.LuckiestGuy -- Fonte robusta da imagem
-Title.TextStrokeTransparency = 0
+Title.TextSize = 26
+Title.Font = Enum.Font.LuckiestGuy
+Title.TextWrapped = true
 
--- Botões de Navegação (Quadrados brancos conforme imagem)
-local function CreateNavBtn(txt, pos)
-    local btn = Instance.new("TextButton", HeaderBar)
-    btn.Size = UDim2.new(0, 34, 0, 34)
-    btn.Position = pos
-    btn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
-    btn.Text = txt
-    btn.TextColor3 = Color3.fromRGB(0, 0, 0)
-    btn.TextSize = 24
-    btn.Font = Enum.Font.SourceSansBold
-    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 4)
-end
-CreateNavBtn("<", UDim2.new(0, 8, 0.5, -17))
-CreateNavBtn(">", UDim2.new(1, -42, 0.5, -17))
+-- Configuração das Setas
+local LeftBtn = Instance.new("TextButton", HeaderBar)
+LeftBtn.Size = UDim2.new(0, 38, 0, 38)
+LeftBtn.Position = UDim2.new(0, 10, 0.5, -19)
+LeftBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+LeftBtn.Text = "<"
+LeftBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
+LeftBtn.TextSize = 28
+LeftBtn.Font = Enum.Font.SourceSansBold
+LeftBtn.Visible = false -- Oculta por padrão na Pág 1
+Instance.new("UICorner", LeftBtn).CornerRadius = UDim.new(0, 6)
 
--- 4. CONTAINER DE BOTÕES
-local ScrollingFrame = Instance.new("ScrollingFrame", MainFrame)
-ScrollingFrame.Size = UDim2.new(1, -10, 1, -110)
-ScrollingFrame.Position = UDim2.new(0, 5, 0, 50)
-ScrollingFrame.BackgroundTransparency = 1
-ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 400)
-ScrollingFrame.ScrollBarThickness = 3
+local RightBtn = Instance.new("TextButton", HeaderBar)
+RightBtn.Size = UDim2.new(0, 38, 0, 38)
+RightBtn.Position = UDim2.new(1, -48, 0.5, -19)
+RightBtn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+RightBtn.Text = ">"
+RightBtn.TextColor3 = Color3.fromRGB(0, 0, 0)
+RightBtn.TextSize = 28
+RightBtn.Font = Enum.Font.SourceSansBold
+Instance.new("UICorner", RightBtn).CornerRadius = UDim.new(0, 6)
 
-local UIGrid = Instance.new("UIGridLayout", ScrollingFrame)
-UIGrid.CellSize = UDim2.new(0, 90, 0, 45)
-UIGrid.CellPadding = UDim2.new(0, 2, 0, 2)
+-- 4. PÁGINAS (CONTEÚDO)
+local PageAbout = Instance.new("Frame", MainFrame)
+PageAbout.Name = "PageAbout"
+PageAbout.Size = UDim2.new(1, -25, 1, -130)
+PageAbout.Position = UDim2.new(0, 12, 0, 60)
+PageAbout.BackgroundTransparency = 1
+PageAbout.Visible = true
+
+local AboutText = Instance.new("TextLabel", PageAbout)
+AboutText.Size = UDim2.new(1, 0, 1, 0)
+AboutText.BackgroundTransparency = 1
+AboutText.Text = "O CUBNIT foi criado com base nos aspectos visuais do Forsekan, especialmente no Spawnismo. O script possui segredos escondidos e uma lore própria.\n\nAviso Importante: O Spawnismo apresentado no script não é o mesmo do Spawnismo convencional; trata-se de uma história diferente.\n\nEste script está sendo desenvolvido com o objetivo de ser algo divertido para a comunidade. Além disso, o projeto CUBNIT se preocupa em criar bons scripts e desenvolver novos projetos."
+AboutText.TextColor3 = Color3.fromRGB(255, 255, 255)
+AboutText.TextSize = 16
+AboutText.Font = Enum.Font.SourceSansBold
+AboutText.TextWrapped = true
+AboutText.TextXAlignment = Enum.TextXAlignment.Left
+AboutText.TextYAlignment = Enum.TextYAlignment.Top
+
+local PageScripts = Instance.new("ScrollingFrame", MainFrame)
+PageScripts.Name = "PageScripts"
+PageScripts.Size = UDim2.new(1, -15, 1, -130)
+PageScripts.Position = UDim2.new(0, 8, 0, 60)
+PageScripts.BackgroundTransparency = 1
+PageScripts.Visible = false
+PageScripts.CanvasSize = UDim2.new(0, 0, 0, 480)
+PageScripts.ScrollBarThickness = 4
+
+local UIGrid = Instance.new("UIGridLayout", PageScripts)
+UIGrid.CellSize = UDim2.new(0, 96, 0, 52)
+UIGrid.CellPadding = UDim2.new(0, 5, 0, 6)
 UIGrid.HorizontalAlignment = Enum.HorizontalAlignment.Center
 
--- Tabela de Scripts
+-- Lógica de Transição entre Abas
+local function updateNavigation(page)
+    if page == 1 then
+        PageAbout.Visible = true
+        PageScripts.Visible = false
+        Title.Text = "Sobre o CUBNIT/ Spawnismo"
+        LeftBtn.Visible = false
+        RightBtn.Visible = true
+    else
+        PageAbout.Visible = false
+        PageScripts.Visible = true
+        Title.Text = "BROOKHAVEN"
+        LeftBtn.Visible = true
+        RightBtn.Visible = false
+    end
+end
+
+RightBtn.MouseButton1Click:Connect(function() updateNavigation(2) end)
+LeftBtn.MouseButton1Click:Connect(function() updateNavigation(1) end)
+
+-- 5. CARREGAMENTO DOS BOTÕES DE SCRIPT
 local ScriptData = {
     ["Fly Gui"] = "https://raw.githubusercontent.com/YuMAID369/MARK-V1-FLY-GUI-/refs/heads/main/MARK%20FLY%20GUI%20V2",
     ["Banir de Casa"] = "https://raw.githubusercontent.com/YuMAID369/BAN-HOUSE-/refs/heads/main/BrookHaven",
@@ -121,18 +169,16 @@ local ScriptData = {
 }
 
 local function AddButton(name, link)
-    local btn = Instance.new("TextButton", ScrollingFrame)
-    btn.BackgroundColor3 = Color3.fromRGB(35, 35, 35) -- Cinza Chumbo da imagem
+    local btn = Instance.new("TextButton", PageScripts)
+    btn.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
     btn.Text = name
     btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    btn.TextSize = 14
+    btn.TextSize = 16
     btn.Font = Enum.Font.SourceSansBold
     btn.TextWrapped = true 
     btn.BorderSizePixel = 1
-    btn.BorderColor3 = Color3.fromRGB(100, 100, 100) -- Borda clara sutil
-    
-    local p = Instance.new("UIPadding", btn)
-    p.PaddingLeft, p.PaddingRight = UDim.new(0, 4), UDim.new(0, 4)
+    btn.BorderColor3 = Color3.fromRGB(130, 130, 130)
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 4)
     
     btn.MouseButton1Click:Connect(function()
         if link then
@@ -141,28 +187,44 @@ local function AddButton(name, link)
     end)
 end
 
-for name, link in pairs(ScriptData) do
-    AddButton(name, link)
-end
+-- Ordenar e Gerar
+local names = {}
+for name in pairs(ScriptData) do table.insert(names, name) end
+table.sort(names)
+for _, name in ipairs(names) do AddButton(name, ScriptData[name]) end
 
--- 5. RODAPÉ (Faixa preta um pouco mais clara)
+-- 6. RODAPÉ (DESIGN COM ID DE SÍMBOLOS)
 local FooterBar = Instance.new("Frame", MainFrame)
-FooterBar.Size = UDim2.new(1, 0, 0, 55)
-FooterBar.Position = UDim2.new(0, 0, 1, -55)
-FooterBar.BackgroundColor3 = Color3.fromRGB(25, 25, 25) -- Preto mais claro que o fundo
+FooterBar.Size = UDim2.new(1, 0, 0, 65)
+FooterBar.Position = UDim2.new(0, 0, 1, -65)
+FooterBar.BackgroundColor3 = Color3.fromRGB(22, 22, 22)
 FooterBar.BorderSizePixel = 0
 
 local CloseBtn = Instance.new("TextButton", FooterBar)
-CloseBtn.Size = UDim2.new(0, 140, 0, 35)
-CloseBtn.Position = UDim2.new(0.5, -70, 0.5, -17)
-CloseBtn.BackgroundColor3 = Color3.fromRGB(45, 45, 45) -- Botão Close cinza escuro
+CloseBtn.Size = UDim2.new(0, 160, 0, 42)
+CloseBtn.Position = UDim2.new(0.5, -80, 0.5, -21)
+CloseBtn.BackgroundColor3 = Color3.fromRGB(45, 45, 45)
 CloseBtn.Text = "Close"
 CloseBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-CloseBtn.TextSize = 22
+CloseBtn.TextSize = 24
 CloseBtn.Font = Enum.Font.SourceSansBold
 Instance.new("UICorner", CloseBtn).CornerRadius = UDim.new(0, 6)
+Instance.new("UIStroke", CloseBtn).Color = Color3.fromRGB(150, 150, 150)
 
--- LÓGICA DE INTERAÇÃO
+-- Adição dos Símbolos Decorativos (ID 130275641191868)
+local function CreateSymbol(pos)
+    local symbol = Instance.new("ImageLabel", FooterBar)
+    symbol.Size = UDim2.new(0, 45, 0, 45) -- Tamanho visível
+    symbol.Position = pos
+    symbol.BackgroundTransparency = 1
+    symbol.Image = "rbxassetid://130275641191868" -- ID Fornecido
+    symbol.ImageColor3 = Color3.fromRGB(255, 255, 255) -- Branco para contraste
+end
+
+CreateSymbol(UDim2.new(0, 15, 0.5, -22)) -- Símbolo Esquerdo
+CreateSymbol(UDim2.new(1, -60, 0.5, -22)) -- Símbolo Direito
+
+-- 7. LÓGICA DE ABRIR/FECHAR
 CloseBtn.MouseButton1Click:Connect(function()
     MainFrame.Visible = false
     OpenBtn.Visible = true
