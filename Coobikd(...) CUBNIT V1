@@ -1,10 +1,10 @@
 --[[
-    BROOK HAVEN GUI - EXECUTION UPDATE
-    Ajustes realizados:
-    - Botão Externo: ID 72831844572549, Tamanho 100x100, Totalmente Arrastável.
-    - Cabeçalho: Faixa cinza tom médio (75, 75, 75).
-    - Execução: Sistema de Loadstring integrado em cada botão.
-    - Layout: Texto escalado para não vazar e rodapé em dois tons.
+    BROOK HAVEN GUI - DESIGN FINAL REF
+    Ajustes: 
+    - Cores baseadas na imagem (Preto e Cinza Chumbo).
+    - Footer em preto suave (um pouco mais claro que o fundo).
+    - Sistema de Loadstring integrado.
+    - Botão Externo 100x100.
 ]]
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -12,17 +12,17 @@ local MainFrame = Instance.new("Frame")
 local OpenBtn = Instance.new("ImageButton")
 local UIS = game:GetService("UserInputService")
 
-ScreenGui.Name = "BrookHaven_Final_V2"
+ScreenGui.Name = "BrookHaven_Ref_V3"
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ResetOnSpawn = false
 
--- 1. BOTÃO DE ABRIR (Arrastável)
+-- 1. BOTÃO DE ABRIR (100x100 Arrastável)
 OpenBtn.Name = "OpenBtn"
 OpenBtn.Parent = ScreenGui
 OpenBtn.Position = UDim2.new(0.02, 0, 0.45, 0)
-OpenBtn.Size = UDim2.new(0, 100, 0, 100) -- Tamanho conforme solicitado
+OpenBtn.Size = UDim2.new(0, 100, 0, 100)
 OpenBtn.BackgroundTransparency = 1
-OpenBtn.Image = "rbxassetid://72831844572549" -- ID Atualizado
+OpenBtn.Image = "rbxassetid://84492418860736"
 OpenBtn.Visible = false
 
 local dragToggle, dragStart, startPos
@@ -52,60 +52,60 @@ MainFrame.Name = "MainFrame"
 MainFrame.Parent = ScreenGui
 MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
 MainFrame.Position = UDim2.new(0.5, 0, 0.5, 0)
-MainFrame.Size = UDim2.new(0, 360, 0, 260) 
-MainFrame.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+MainFrame.Size = UDim2.new(0, 380, 0, 280) 
+MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- Fundo Total Preto
 MainFrame.BorderSizePixel = 2
-MainFrame.BorderColor3 = Color3.fromRGB(80, 80, 80)
+MainFrame.BorderColor3 = Color3.fromRGB(60, 60, 60)
 MainFrame.Active = true
 MainFrame.Draggable = true
 
--- 3. CABEÇALHO (Faixa Cinza Médio)
+-- 3. CABEÇALHO
 local HeaderBar = Instance.new("Frame", MainFrame)
-HeaderBar.Size = UDim2.new(1, 0, 0, 38)
-HeaderBar.BackgroundColor3 = Color3.fromRGB(75, 75, 75) -- Tom ajustado
-HeaderBar.BorderSizePixel = 1
-HeaderBar.BorderColor3 = Color3.fromRGB(0, 0, 0)
+HeaderBar.Size = UDim2.new(1, 0, 0, 45)
+HeaderBar.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+HeaderBar.BorderSizePixel = 0
 
 local Title = Instance.new("TextLabel", HeaderBar)
 Title.Size = UDim2.new(1, 0, 1, 0)
 Title.BackgroundTransparency = 1
-Title.Text = "Brook Haven"
-Title.TextColor3 = Color3.fromRGB(235, 235, 235)
-Title.TextSize = 22
-Title.Font = Enum.Font.Bodoni
-Title.TextStrokeTransparency = 1
+Title.Text = "BROOKHAVEN"
+Title.TextColor3 = Color3.fromRGB(255, 255, 255)
+Title.TextSize = 30
+Title.Font = Enum.Font.LuckiestGuy -- Fonte robusta da imagem
+Title.TextStrokeTransparency = 0
 
+-- Botões de Navegação (Quadrados brancos conforme imagem)
 local function CreateNavBtn(txt, pos)
     local btn = Instance.new("TextButton", HeaderBar)
-    btn.Size = UDim2.new(0, 32, 0, 26)
+    btn.Size = UDim2.new(0, 34, 0, 34)
     btn.Position = pos
-    btn.BackgroundColor3 = Color3.fromRGB(160, 160, 160)
+    btn.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
     btn.Text = txt
     btn.TextColor3 = Color3.fromRGB(0, 0, 0)
-    btn.TextSize = 18
+    btn.TextSize = 24
     btn.Font = Enum.Font.SourceSansBold
     Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 4)
 end
-CreateNavBtn("<", UDim2.new(0, 5, 0.5, -13))
-CreateNavBtn(">", UDim2.new(1, -37, 0.5, -13))
+CreateNavBtn("<", UDim2.new(0, 8, 0.5, -17))
+CreateNavBtn(">", UDim2.new(1, -42, 0.5, -17))
 
--- 4. CONTAINER E MAPEAMENTO DE SCRIPTS
+-- 4. CONTAINER DE BOTÕES
 local ScrollingFrame = Instance.new("ScrollingFrame", MainFrame)
-ScrollingFrame.Size = UDim2.new(1, -10, 1, -95)
-ScrollingFrame.Position = UDim2.new(0, 5, 0, 45)
+ScrollingFrame.Size = UDim2.new(1, -10, 1, -110)
+ScrollingFrame.Position = UDim2.new(0, 5, 0, 50)
 ScrollingFrame.BackgroundTransparency = 1
-ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 360)
-ScrollingFrame.ScrollBarThickness = 2
+ScrollingFrame.CanvasSize = UDim2.new(0, 0, 0, 400)
+ScrollingFrame.ScrollBarThickness = 3
 
 local UIGrid = Instance.new("UIGridLayout", ScrollingFrame)
-UIGrid.CellSize = UDim2.new(0, 82, 0, 40)
-UIGrid.CellPadding = UDim2.new(0, 5, 0, 6)
+UIGrid.CellSize = UDim2.new(0, 90, 0, 45)
+UIGrid.CellPadding = UDim2.new(0, 2, 0, 2)
 UIGrid.HorizontalAlignment = Enum.HorizontalAlignment.Center
 
--- Tabela de Scripts (Nome = Link)
+-- Tabela de Scripts
 local ScriptData = {
     ["Fly Gui"] = "https://raw.githubusercontent.com/YuMAID369/MARK-V1-FLY-GUI-/refs/heads/main/MARK%20FLY%20GUI%20V2",
-    ["Ban House"] = "https://raw.githubusercontent.com/YuMAID369/BAN-HOUSE-/refs/heads/main/BrookHaven",
+    ["Banir de Casa"] = "https://raw.githubusercontent.com/YuMAID369/BAN-HOUSE-/refs/heads/main/BrookHaven",
     ["Copy Skin V2"] = "https://raw.githubusercontent.com/YuMAID369/Inspect-avatar-/refs/heads/main/BrookHaven",
     ["Freeze Emote"] = "https://raw.githubusercontent.com/YuMAID369/FreezeEmote-/refs/heads/main/Universal%20Emote%20Lock",
     ["Emotes"] = "https://rawscripts.net/raw/Universal-Script-7yd7-I-Emote-Script-48024",
@@ -122,22 +122,18 @@ local ScriptData = {
 
 local function AddButton(name, link)
     local btn = Instance.new("TextButton", ScrollingFrame)
-    btn.Name = name
-    btn.BackgroundColor3 = Color3.fromRGB(75, 20, 20)
+    btn.BackgroundColor3 = Color3.fromRGB(35, 35, 35) -- Cinza Chumbo da imagem
     btn.Text = name
     btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    btn.TextSize = 16
+    btn.TextSize = 14
     btn.Font = Enum.Font.SourceSansBold
     btn.TextWrapped = true 
-    btn.TextScaled = true 
-    btn.TextStrokeTransparency = 1
     btn.BorderSizePixel = 1
-    btn.BorderColor3 = Color3.fromRGB(120, 120, 120)
+    btn.BorderColor3 = Color3.fromRGB(100, 100, 100) -- Borda clara sutil
     
     local p = Instance.new("UIPadding", btn)
-    p.PaddingLeft, p.PaddingRight = UDim.new(0, 2), UDim.new(0, 2)
+    p.PaddingLeft, p.PaddingRight = UDim.new(0, 4), UDim.new(0, 4)
     
-    -- Execução via Loadstring
     btn.MouseButton1Click:Connect(function()
         if link then
             loadstring(game:HttpGet(link))()
@@ -145,30 +141,28 @@ local function AddButton(name, link)
     end)
 end
 
--- Gerar botões a partir da tabela
 for name, link in pairs(ScriptData) do
     AddButton(name, link)
 end
 
--- 5. RODAPÉ (Dois Tons)
+-- 5. RODAPÉ (Faixa preta um pouco mais clara)
 local FooterBar = Instance.new("Frame", MainFrame)
-FooterBar.Size = UDim2.new(1, 0, 0, 48)
-FooterBar.Position = UDim2.new(0, 0, 1, -48)
-FooterBar.BackgroundColor3 = Color3.fromRGB(50, 10, 10)
-FooterBar.BorderSizePixel = 1
+FooterBar.Size = UDim2.new(1, 0, 0, 55)
+FooterBar.Position = UDim2.new(0, 0, 1, -55)
+FooterBar.BackgroundColor3 = Color3.fromRGB(25, 25, 25) -- Preto mais claro que o fundo
+FooterBar.BorderSizePixel = 0
 
 local CloseBtn = Instance.new("TextButton", FooterBar)
-CloseBtn.Size = UDim2.new(0, 110, 0, 30)
-CloseBtn.Position = UDim2.new(0.5, -55, 0.5, -15)
-CloseBtn.BackgroundColor3 = Color3.fromRGB(110, 25, 25)
+CloseBtn.Size = UDim2.new(0, 140, 0, 35)
+CloseBtn.Position = UDim2.new(0.5, -70, 0.5, -17)
+CloseBtn.BackgroundColor3 = Color3.fromRGB(45, 45, 45) -- Botão Close cinza escuro
 CloseBtn.Text = "Close"
 CloseBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
-CloseBtn.TextSize = 20
+CloseBtn.TextSize = 22
 CloseBtn.Font = Enum.Font.SourceSansBold
-CloseBtn.TextStrokeTransparency = 1
-Instance.new("UICorner", CloseBtn).CornerRadius = UDim.new(0, 4)
+Instance.new("UICorner", CloseBtn).CornerRadius = UDim.new(0, 6)
 
--- LÓGICA DE ABRIR/FECHAR
+-- LÓGICA DE INTERAÇÃO
 CloseBtn.MouseButton1Click:Connect(function()
     MainFrame.Visible = false
     OpenBtn.Visible = true
