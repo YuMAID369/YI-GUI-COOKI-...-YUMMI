@@ -71,7 +71,7 @@ Title.Size = UDim2.new(1, 0, 1, 0)
 Title.BackgroundTransparency = 1
 Title.Text = "Sobre o CUBNIT/ Spawnismo"
 Title.TextColor3 = Color3.fromRGB(255, 255, 255)
-Title.TextSize = 26
+Title.TextSize = 22
 Title.Font = Enum.Font.LuckiestGuy
 Title.TextWrapped = true
 
@@ -152,20 +152,20 @@ LeftBtn.MouseButton1Click:Connect(function() updateNavigation(1) end)
 
 -- 5. CARREGAMENTO DOS BOTÕES DE SCRIPT
 local ScriptData = {
-    ["Fly Gui"] = "https://raw.githubusercontent.com/YuMAID369/MARK-V1-FLY-GUI-/refs/heads/main/MARK%20FLY%20GUI%20V2",
-    ["Banir de Casa"] = "https://raw.githubusercontent.com/YuMAID369/BAN-HOUSE-/refs/heads/main/BrookHaven",
-    ["Copy Skin V2"] = "https://raw.githubusercontent.com/YuMAID369/Inspect-avatar-/refs/heads/main/BrookHaven",
-    ["Freeze Emote"] = "https://raw.githubusercontent.com/YuMAID369/FreezeEmote-/refs/heads/main/Universal%20Emote%20Lock",
-    ["Emotes"] = "https://rawscripts.net/raw/Universal-Script-7yd7-I-Emote-Script-48024",
-    ["Shaders"] = "https://raw.githubusercontent.com/YuMAID369/Shaders-V1/refs/heads/main/CUBNIT",
-    ["Manoplas"] = "https://raw.githubusercontent.com/YuMAID369/MANOPLA-V2/refs/heads/main/HAND",
-    ["Infinity Yield"] = "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
-    ["Tp Tool"] = "https://raw.githubusercontent.com/YuMAID369/TP-TOOL-v1/refs/heads/main/TP%20Tool",
-    ["Teletransporte"] = "https://raw.githubusercontent.com/YuMAID369/Teletransporte-/refs/heads/main/SpawnCUB",
-    ["Camera Livre"] = "https://raw.githubusercontent.com/YuMAID369/SpawnCam/refs/heads/main/Universal%20Cam",
-    ["Chat Privado"] = "https://rawscripts.net/raw/Brookhaven-RP-Mickey-Chat-85762",
-    ["Telekinesis"] = "https://raw.githubusercontent.com/YuMAID369/TELEKINESIS-/refs/heads/main/Telekinesis%20Tool",
-    ["Fling Ball V1"] = "https://raw.githubusercontent.com/YuMAID369/Fling-Ball-Cubnit-V1/refs/heads/main/Kill%20Ball%20V1"
+    ["FLY GUI MARK"] = "https://raw.githubusercontent.com/YuMAID369/MARK-V1-FLY-GUI-/refs/heads/main/MARK%20FLY%20GUI%20V2",
+    ["BAN HOUSE"] = "https://raw.githubusercontent.com/YuMAID369/BAN-HOUSE-/refs/heads/main/BrookHaven",
+    ["INSPECIONAR AVATAR"] = "https://raw.githubusercontent.com/YuMAID369/Inspect-avatar-/refs/heads/main/BrookHaven",
+    ["FREEZE EMOTE"] = "https://raw.githubusercontent.com/YuMAID369/FreezeEmote-/refs/heads/main/Universal%20Emote%20Lock",
+    ["EMOTES"] = "https://rawscripts.net/raw/Universal-Script-7yd7-I-Emote-Script-48024",
+    ["SHADERS"] = "https://raw.githubusercontent.com/YuMAID369/Shaders-V1/refs/heads/main/CUBNIT",
+    ["MANOPLA V1"] = "https://raw.githubusercontent.com/YuMAID369/MANOPLA-V2/refs/heads/main/HAND",
+    ["INFINITY YIELD"] = "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
+    ["TP TOOL"] = "https://raw.githubusercontent.com/YuMAID369/TP-TOOL-v1/refs/heads/main/TP%20Tool",
+    ["TELETRANY"] = "https://raw.githubusercontent.com/YuMAID369/Teletransporte-/refs/heads/main/SpawnCUB",
+    ["FREE CAM"] = "https://raw.githubusercontent.com/YuMAID369/SpawnCam/refs/heads/main/Universal%20Cam",
+    ["CHAT PV MI"] = "https://rawscripts.net/raw/Brookhaven-RP-Mickey-Chat-85762",
+    ["TELEKINESIS"] = "https://raw.githubusercontent.com/YuMAID369/TELEKINESIS-/refs/heads/main/Telekinesis%20Tool",
+    ["FLING BALL V1"] = "https://raw.githubusercontent.com/YuMAID369/Fling-Ball-Cubnit-V1/refs/heads/main/Kill%20Ball%20V1"
 }
 
 local function AddButton(name, link)
