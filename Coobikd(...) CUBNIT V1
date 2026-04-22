@@ -1,10 +1,10 @@
 --[[
-    BROOK HAVEN GUI - UPDATE V6 (SPEED EMOTE INTEGRATION)
+    BROOK HAVEN GUI - UPDATE V7 (CHAT SPAWNCUB INTEGRATION)
     Ajustes realizados:
-    - Inclusão da nova função: SPEED EMOTE.
+    - Inclusão da nova função: CHAT SPAWNCUB. [Atualização Recente]
     - Manutenção do sistema de navegação inteligente (setas dinâmicas).
     - Design de rodapé com símbolos (ID 130275641191868).
-    - Botão externo 100x100 totalmente arrastável.
+    - Botão externo 100x100 totalmente arrastável e funcional.
 ]]
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -12,7 +12,7 @@ local MainFrame = Instance.new("Frame")
 local OpenBtn = Instance.new("ImageButton")
 local UIS = game:GetService("UserInputService")
 
-ScreenGui.Name = "BrookHaven_V6_Final"
+ScreenGui.Name = "BrookHaven_V7_Final"
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ResetOnSpawn = false
 
@@ -123,7 +123,7 @@ PageScripts.Size = UDim2.new(1, -15, 1, -130)
 PageScripts.Position = UDim2.new(0, 8, 0, 60)
 PageScripts.BackgroundTransparency = 1
 PageScripts.Visible = false
-PageScripts.CanvasSize = UDim2.new(0, 0, 0, 520) -- Canvas aumentado para novos botões
+PageScripts.CanvasSize = UDim2.new(0, 0, 0, 540) -- Canvas ajustado para 16 funções
 PageScripts.ScrollBarThickness = 4
 
 local UIGrid = Instance.new("UIGridLayout", PageScripts)
@@ -167,7 +167,8 @@ local ScriptData = {
     ["CHAT PV MI"] = "https://rawscripts.net/raw/Brookhaven-RP-Mickey-Chat-85762",
     ["TELEKINESIS"] = "https://raw.githubusercontent.com/YuMAID369/TELEKINESIS-/refs/heads/main/Telekinesis%20Tool",
     ["FLING BALL V1"] = "https://raw.githubusercontent.com/YuMAID369/Fling-Ball-Cubnit-V1/refs/heads/main/Kill%20Ball%20V1",
-    ["SPEED EMOTE"] = "https://raw.githubusercontent.com/YuMAID369/CubnitSpeedEmote/refs/heads/main/EmoteSpeed" -- NOVA FUNÇÃO
+    ["SPEED EMOTE"] = "https://raw.githubusercontent.com/YuMAID369/CubnitSpeedEmote/refs/heads/main/EmoteSpeed",
+    ["CHAT SPAWNCUB"] = "https://raw.githubusercontent.com/YuMAID369/Chat-Privado/refs/heads/main/OpenChatBeta" -- NOVA FUNÇÃO
 }
 
 local function AddButton(name, link)
@@ -175,7 +176,7 @@ local function AddButton(name, link)
     btn.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
     btn.Text = name
     btn.TextColor3 = Color3.fromRGB(255, 255, 255)
-    btn.TextSize = 14
+    btn.TextSize = 13 -- Ajustado levemente para caber nomes maiores
     btn.Font = Enum.Font.SourceSansBold
     btn.TextWrapped = true 
     btn.BorderSizePixel = 1
