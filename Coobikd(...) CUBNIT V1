@@ -1,12 +1,11 @@
 --[[
-    CUBNIT GUI - UPDATE V10 (ESTILO VISUAL FIEL & RESTAURAÇÃO TOTAL)
+    CUBNIT GUI - UPDATE V11 (INTEGRAÇÃO VIEW & DESIGN V10)
     Ajustes realizados:
-    - Restauração do botão CLOSE no rodapé.
-    - Faixa branca abaixo do título com espessura aumentada (7px).
-    - OpenBtn 100x100 permanente (não some ao abrir).
-    - Toggle: Clique simples no OpenBtn abre/fecha.
-    - Kill Switch: Clique duplo no OpenBtn deleta o script.
-    - Script 100% Completo e fiel ao design original.
+    - Adição da nova função "VIEW" na aba de Scripts.
+    - Manutenção da faixa branca grossa (7px) abaixo do título.
+    - OpenBtn 100x100 permanente com lógica de Toggle e Kill Switch.
+    - Botão CLOSE interno restaurado no rodapé.
+    - Sistema de navegação por abas (Sobre / Scripts).
 ]]
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -14,11 +13,11 @@ local MainFrame = Instance.new("Frame")
 local OpenBtn = Instance.new("ImageButton")
 local UIS = game:GetService("UserInputService")
 
-ScreenGui.Name = "BrookHaven_V10_Final"
+ScreenGui.Name = "BrookHaven_V11_Final"
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ResetOnSpawn = false
 
--- 1. BOTÃO DE CONTROLE (100x100 Permanente e Arrastável)
+-- 1. BOTÃO DE CONTROLE EXTERNO (Permanente e Arrastável)
 OpenBtn.Name = "OpenBtn"
 OpenBtn.Parent = ScreenGui
 OpenBtn.Position = UDim2.new(0.02, 0, 0.45, 0)
@@ -49,7 +48,7 @@ UIS.InputEnded:Connect(function(input)
     end
 end)
 
--- 2. FRAME PRINCIPAL
+-- 2. QUADRO PRINCIPAL (INTERFACE)
 MainFrame.Name = "MainFrame"
 MainFrame.Parent = ScreenGui
 MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
@@ -65,7 +64,7 @@ MainFrame.Visible = false
 local MainCorner = Instance.new("UICorner", MainFrame)
 MainCorner.CornerRadius = UDim.new(0, 8)
 
--- 3. CABEÇALHO E FAIXA BRANCA GROSSA
+-- 3. CABEÇALHO E FAIXA BRANCA (7PX)
 local HeaderBar = Instance.new("Frame", MainFrame)
 HeaderBar.Size = UDim2.new(1, 0, 0, 65)
 HeaderBar.BackgroundTransparency = 1
@@ -80,7 +79,7 @@ Title.TextSize = 22
 Title.Font = Enum.Font.LuckiestGuy
 Title.TextWrapped = true
 
--- A FAIXA BRANCA (Espessura de 7 pixels conforme solicitado)
+-- Faixa branca grossa conforme imagem
 local WhiteSeparator = Instance.new("Frame", HeaderBar)
 WhiteSeparator.Name = "WhiteSeparator"
 WhiteSeparator.Size = UDim2.new(1, -20, 0, 7)
@@ -89,7 +88,7 @@ WhiteSeparator.AnchorPoint = Vector2.new(0.5, 0)
 WhiteSeparator.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 WhiteSeparator.BorderSizePixel = 0
 
--- Navegação (Setas)
+-- Navegação Inteligente
 local LeftBtn = Instance.new("TextButton", HeaderBar)
 LeftBtn.Size = UDim2.new(0, 38, 0, 38)
 LeftBtn.Position = UDim2.new(0, 10, 0, 10)
@@ -111,7 +110,7 @@ RightBtn.TextSize = 28
 RightBtn.Font = Enum.Font.SourceSansBold
 Instance.new("UICorner", RightBtn).CornerRadius = UDim.new(0, 6)
 
--- 4. PÁGINAS (CONTEÚDO)
+-- 4. PÁGINAS DE CONTEÚDO
 local PageAbout = Instance.new("Frame", MainFrame)
 PageAbout.Size = UDim2.new(1, -25, 1, -145)
 PageAbout.Position = UDim2.new(0, 12, 0, 75)
@@ -133,7 +132,7 @@ PageScripts.Size = UDim2.new(1, -15, 1, -145)
 PageScripts.Position = UDim2.new(0, 8, 0, 75)
 PageScripts.BackgroundTransparency = 1
 PageScripts.Visible = false
-PageScripts.CanvasSize = UDim2.new(0, 0, 0, 540)
+PageScripts.CanvasSize = UDim2.new(0, 0, 0, 600) -- Ajustado para nova função
 PageScripts.ScrollBarThickness = 3
 
 local UIGrid = Instance.new("UIGridLayout", PageScripts)
@@ -156,7 +155,7 @@ end
 RightBtn.MouseButton1Click:Connect(function() updateNavigation(2) end)
 LeftBtn.MouseButton1Click:Connect(function() updateNavigation(1) end)
 
--- 5. CARREGAMENTO DOS SCRIPTS (16 Funções)
+-- 5. BANCO DE DADOS DE SCRIPTS (Incluso VIEW)
 local ScriptData = {
     ["FLY GUI MARK"] = "https://raw.githubusercontent.com/YuMAID369/MARK-V1-FLY-GUI-/refs/heads/main/MARK%20FLY%20GUI%20V2",
     ["BAN HOUSE"] = "https://raw.githubusercontent.com/YuMAID369/BAN-HOUSE-/refs/heads/main/BrookHaven",
@@ -173,7 +172,8 @@ local ScriptData = {
     ["TELEKINESIS"] = "https://raw.githubusercontent.com/YuMAID369/TELEKINESIS-/refs/heads/main/Telekinesis%20Tool",
     ["FLING BALL V1"] = "https://raw.githubusercontent.com/YuMAID369/Fling-Ball-Cubnit-V1/refs/heads/main/Kill%20Ball%20V1",
     ["SPEED EMOTE"] = "https://raw.githubusercontent.com/YuMAID369/CubnitSpeedEmote/refs/heads/main/EmoteSpeed",
-    ["CHAT SPAWNCUB"] = "https://raw.githubusercontent.com/YuMAID369/Chat-Privado/refs/heads/main/OpenChatBeta"
+    ["CHAT SPAWNCUB"] = "https://raw.githubusercontent.com/YuMAID369/Chat-Privado/refs/heads/main/OpenChatBeta",
+    ["VIEW"] = "https://raw.githubusercontent.com/YuMAID369/View-SpawnCUB-/refs/heads/main/View%20Din%C3%A2mico%20Beta" -- NOVO SCRIPT
 }
 
 for name, link in pairs(ScriptData) do
@@ -188,7 +188,7 @@ for name, link in pairs(ScriptData) do
     btn.MouseButton1Click:Connect(function() loadstring(game:HttpGet(link))() end)
 end
 
--- 6. RODAPÉ COM SÍMBOLOS E BOTÃO FECHAR (RESTAURADO)
+-- 6. RODAPÉ (CLOSE BTN + SÍMBOLOS)
 local FooterBar = Instance.new("Frame", MainFrame)
 FooterBar.Size = UDim2.new(1, 0, 0, 65)
 FooterBar.Position = UDim2.new(0, 0, 1, -65)
@@ -223,18 +223,16 @@ end
 CreateSymbol(UDim2.new(0, 15, 0.5, -22)) 
 CreateSymbol(UDim2.new(1, -60, 0.5, -22)) 
 
--- 7. LÓGICA DE CONTROLE EXTERNO (SINGLE E DOUBLE CLICK)
+-- 7. LÓGICA DE CONTROLE (CLIQUE SIMPLES / CLIQUE DUPLO)
 local lastClick = 0
 OpenBtn.MouseButton1Click:Connect(function()
     local currentTime = tick()
-    
-    -- Lógica de Double Click (Intervalo menor que 0.35 segundos para Kill Switch)
+
     if (currentTime - lastClick) < 0.35 then
-        ScreenGui:Destroy() -- Deleta o script completamente
+        ScreenGui:Destroy() -- Kill Switch: Deleta o script
     else
-        -- Lógica de Single Click (Toggle Visibilidade)
-        MainFrame.Visible = not MainFrame.Visible
+        MainFrame.Visible = not MainFrame.Visible -- Toggle Visibilidade
     end
-    
+
     lastClick = currentTime
 end)
