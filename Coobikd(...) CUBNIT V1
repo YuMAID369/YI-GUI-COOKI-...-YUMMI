@@ -1,11 +1,11 @@
 --[[
-    CUBNIT GUI - UPDATE V11 (INTEGRAÇÃO VIEW & DESIGN V10)
+    CUBNIT GUI - UPDATE V12 (PHYSICS UPDATE & DESIGN V10)
     Ajustes realizados:
-    - Adição da nova função "VIEW" na aba de Scripts.
-    - Manutenção da faixa branca grossa (7px) abaixo do título.
-    - OpenBtn 100x100 permanente com lógica de Toggle e Kill Switch.
-    - Botão CLOSE interno restaurado no rodapé.
-    - Sistema de navegação por abas (Sobre / Scripts).
+    - Adição da função "PHYSICS" (Humanoid Manipulation).
+    - Faixa branca de 7px mantida para fidelidade visual.
+    - OpenBtn 100x100 com Toggle (1 clique) e Kill Switch (2 cliques).
+    - Botão CLOSE interno centralizado no rodapé.
+    - Navegação entre "Sobre" e "Scripts" via setas.
 ]]
 
 local ScreenGui = Instance.new("ScreenGui")
@@ -13,7 +13,7 @@ local MainFrame = Instance.new("Frame")
 local OpenBtn = Instance.new("ImageButton")
 local UIS = game:GetService("UserInputService")
 
-ScreenGui.Name = "BrookHaven_V11_Final"
+ScreenGui.Name = "BrookHaven_V12_Final"
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ResetOnSpawn = false
 
@@ -79,7 +79,6 @@ Title.TextSize = 22
 Title.Font = Enum.Font.LuckiestGuy
 Title.TextWrapped = true
 
--- Faixa branca grossa conforme imagem
 local WhiteSeparator = Instance.new("Frame", HeaderBar)
 WhiteSeparator.Name = "WhiteSeparator"
 WhiteSeparator.Size = UDim2.new(1, -20, 0, 7)
@@ -88,7 +87,7 @@ WhiteSeparator.AnchorPoint = Vector2.new(0.5, 0)
 WhiteSeparator.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 WhiteSeparator.BorderSizePixel = 0
 
--- Navegação Inteligente
+-- Navegação
 local LeftBtn = Instance.new("TextButton", HeaderBar)
 LeftBtn.Size = UDim2.new(0, 38, 0, 38)
 LeftBtn.Position = UDim2.new(0, 10, 0, 10)
@@ -132,7 +131,7 @@ PageScripts.Size = UDim2.new(1, -15, 1, -145)
 PageScripts.Position = UDim2.new(0, 8, 0, 75)
 PageScripts.BackgroundTransparency = 1
 PageScripts.Visible = false
-PageScripts.CanvasSize = UDim2.new(0, 0, 0, 600) -- Ajustado para nova função
+PageScripts.CanvasSize = UDim2.new(0, 0, 0, 650) -- Aumentado para acomodar novos botões
 PageScripts.ScrollBarThickness = 3
 
 local UIGrid = Instance.new("UIGridLayout", PageScripts)
@@ -155,7 +154,7 @@ end
 RightBtn.MouseButton1Click:Connect(function() updateNavigation(2) end)
 LeftBtn.MouseButton1Click:Connect(function() updateNavigation(1) end)
 
--- 5. BANCO DE DADOS DE SCRIPTS (Incluso VIEW)
+-- 5. BANCO DE DATA DOS SCRIPTS (Incluso PHYSICS)
 local ScriptData = {
     ["FLY GUI MARK"] = "https://raw.githubusercontent.com/YuMAID369/MARK-V1-FLY-GUI-/refs/heads/main/MARK%20FLY%20GUI%20V2",
     ["BAN HOUSE"] = "https://raw.githubusercontent.com/YuMAID369/BAN-HOUSE-/refs/heads/main/BrookHaven",
@@ -173,7 +172,8 @@ local ScriptData = {
     ["FLING BALL V1"] = "https://raw.githubusercontent.com/YuMAID369/Fling-Ball-Cubnit-V1/refs/heads/main/Kill%20Ball%20V1",
     ["SPEED EMOTE"] = "https://raw.githubusercontent.com/YuMAID369/CubnitSpeedEmote/refs/heads/main/EmoteSpeed",
     ["CHAT SPAWNCUB"] = "https://raw.githubusercontent.com/YuMAID369/Chat-Privado/refs/heads/main/OpenChatBeta",
-    ["VIEW"] = "https://raw.githubusercontent.com/YuMAID369/View-SpawnCUB-/refs/heads/main/View%20Din%C3%A2mico%20Beta" -- NOVO SCRIPT
+    ["VIEW"] = "https://raw.githubusercontent.com/YuMAID369/View-SpawnCUB-/refs/heads/main/View%20Din%C3%A2mico%20Beta",
+    ["PHYSICS"] = "https://raw.githubusercontent.com/YuMAID369/Humanoid-physics-manipulation/refs/heads/main/Physics%20Alterer" -- NOVO SCRIPT
 }
 
 for name, link in pairs(ScriptData) do
@@ -223,16 +223,14 @@ end
 CreateSymbol(UDim2.new(0, 15, 0.5, -22)) 
 CreateSymbol(UDim2.new(1, -60, 0.5, -22)) 
 
--- 7. LÓGICA DE CONTROLE (CLIQUE SIMPLES / CLIQUE DUPLO)
+-- 7. LÓGICA DE CONTROLE
 local lastClick = 0
 OpenBtn.MouseButton1Click:Connect(function()
     local currentTime = tick()
-
     if (currentTime - lastClick) < 0.35 then
-        ScreenGui:Destroy() -- Kill Switch: Deleta o script
+        ScreenGui:Destroy()
     else
-        MainFrame.Visible = not MainFrame.Visible -- Toggle Visibilidade
+        MainFrame.Visible = not MainFrame.Visible
     end
-
     lastClick = currentTime
 end)
