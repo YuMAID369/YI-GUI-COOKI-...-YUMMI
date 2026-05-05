@@ -1,7 +1,7 @@
 --[[
-    CUBNIT GUI - UPDATE V12 (PHYSICS UPDATE & DESIGN V10)
+    CUBNIT GUI - UPDATE V13 (SKYBOX UPDATE & DESIGN V10)
     Ajustes realizados:
-    - Adição da função "PHYSICS" (Humanoid Manipulation).
+    - Adição da função "SKYBOX V1".
     - Faixa branca de 7px mantida para fidelidade visual.
     - OpenBtn 100x100 com Toggle (1 clique) e Kill Switch (2 cliques).
     - Botão CLOSE interno centralizado no rodapé.
@@ -13,7 +13,7 @@ local MainFrame = Instance.new("Frame")
 local OpenBtn = Instance.new("ImageButton")
 local UIS = game:GetService("UserInputService")
 
-ScreenGui.Name = "BrookHaven_V12_Final"
+ScreenGui.Name = "BrookHaven_V13_Final"
 ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 ScreenGui.ResetOnSpawn = false
 
@@ -131,7 +131,7 @@ PageScripts.Size = UDim2.new(1, -15, 1, -145)
 PageScripts.Position = UDim2.new(0, 8, 0, 75)
 PageScripts.BackgroundTransparency = 1
 PageScripts.Visible = false
-PageScripts.CanvasSize = UDim2.new(0, 0, 0, 650) -- Aumentado para acomodar novos botões
+PageScripts.CanvasSize = UDim2.new(0, 0, 0, 700) -- Canvas aumentado para novos scripts
 PageScripts.ScrollBarThickness = 3
 
 local UIGrid = Instance.new("UIGridLayout", PageScripts)
@@ -154,7 +154,7 @@ end
 RightBtn.MouseButton1Click:Connect(function() updateNavigation(2) end)
 LeftBtn.MouseButton1Click:Connect(function() updateNavigation(1) end)
 
--- 5. BANCO DE DATA DOS SCRIPTS (Incluso PHYSICS)
+-- 5. BANCO DE DADOS DOS SCRIPTS (Incluso SKYBOX V1)
 local ScriptData = {
     ["FLY GUI MARK"] = "https://raw.githubusercontent.com/YuMAID369/MARK-V1-FLY-GUI-/refs/heads/main/MARK%20FLY%20GUI%20V2",
     ["BAN HOUSE"] = "https://raw.githubusercontent.com/YuMAID369/BAN-HOUSE-/refs/heads/main/BrookHaven",
@@ -173,7 +173,8 @@ local ScriptData = {
     ["SPEED EMOTE"] = "https://raw.githubusercontent.com/YuMAID369/CubnitSpeedEmote/refs/heads/main/EmoteSpeed",
     ["CHAT SPAWNCUB"] = "https://raw.githubusercontent.com/YuMAID369/Chat-Privado/refs/heads/main/OpenChatBeta",
     ["VIEW"] = "https://raw.githubusercontent.com/YuMAID369/View-SpawnCUB-/refs/heads/main/View%20Din%C3%A2mico%20Beta",
-    ["PHYSICS"] = "https://raw.githubusercontent.com/YuMAID369/Humanoid-physics-manipulation/refs/heads/main/Physics%20Alterer" -- NOVO SCRIPT
+    ["PHYSICS"] = "https://raw.githubusercontent.com/YuMAID369/Humanoid-physics-manipulation/refs/heads/main/Physics%20Alterer",
+    ["SKYBOX V1"] = "https://raw.githubusercontent.com/YuMAID369/SKYBOX-V1/refs/heads/main/SKYBOX-SPAWN" -- NOVO SCRIPT
 }
 
 for name, link in pairs(ScriptData) do
