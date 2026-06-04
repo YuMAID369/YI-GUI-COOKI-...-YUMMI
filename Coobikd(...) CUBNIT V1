@@ -180,7 +180,7 @@ local ScriptData = {
 }
 
 for name, link in pairs(ScriptData) do
-    local btn = Create("TextButton", PageScripts, {BackgroundColor3 = Color3.fromRGB(35,35,35), Text = name, TextColor3 = Color3.fromRGB(255,255,255), TextSize = 20, Font = Enum.Font.SourceSansBold, TextWrapped = true})
+    local btn = Create("TextButton", PageScripts, {BackgroundColor3 = Color3.fromRGB(35,35,35), Text = name, TextColor3 = Color3.fromRGB(255,255,255), TextSize = 19, Font = Enum.Font.SourceSansBold, TextWrapped = true})
     Create("UICorner", btn, {CornerRadius = UDim.new(0, 4)})
     btn.MouseButton1Click:Connect(function() loadstring(game:HttpGet(link))() end)
 end
