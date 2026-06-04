@@ -188,14 +188,14 @@ end
 -- 5.1 GERAÇÃO DOS BOTÕES DE EXTENSÃO (Aba 3)
 local ExtensionButtons = {
     [1] = {name = "HUMANOID VIEW STATUS", link = ""},
-    [2] = {name = "CHAT SPWNCUB", link = ""},
-    [3] = {name = "DATA ANALYSIS", link = ""},
-    [4] = {name = "UNIVERSAL TOOLS", link = ""},
-    [5] = {name = "PAINEL ADM", link = ""},
-    [6] = {name = "SERVERS ID", link = ""},
-    [7] = {name = "NETWORK", link = ""},
-    [8] = {name = "LORE", link = ""},
-    [9] = {name = "DISCORD", link = ""},
+    [2] = {name = "ABA 4", link = ""},
+    [3] = {name = "ABA 5", link = ""},
+    [4] = {name = "ABA 6", link = ""},
+    [5] = {name = "ABA 7", link = ""},
+    [6] = {name = "ABA 8", link = ""},
+    [7] = {name = "ABA 9", link = ""},
+    [8] = {name = "ABA 10", link = ""},
+    [9] = {name = "ABA 11", link = ""},
 }
 
 for i, data in ipairs(ExtensionButtons) do
