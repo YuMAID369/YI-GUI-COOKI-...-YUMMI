@@ -115,13 +115,13 @@ local function updateNavigation(page)
     PageScripts.Visible = (page == 2)
     PageExtension.Visible = (page == 3)
     RightFixedPanel.Visible = (page == 3)
-    
+
     if page == 1 then
         Title.Text = "Sobre o CUBNIT/Spawnismo"
         Title.Font = Enum.Font.LuckiestGuy
         Title.Size = UDim2.new(1, 0, 0, 50)
         Title.Position = UDim2.new(0, 0, 0, 6)
-        Title.TextXAlignment = Enum.TextXAlignment.Center -- [AJUSTE]: Centralizado na parte superior
+        Title.TextXAlignment = Enum.TextXAlignment.Center
         LeftBtn.Visible = false
         RightBtn.Visible = true
         WhiteSeparator.Visible = true
@@ -131,17 +131,17 @@ local function updateNavigation(page)
         Title.Font = Enum.Font.LuckiestGuy
         Title.Size = UDim2.new(1, 0, 0, 55)
         Title.Position = UDim2.new(0, 0, 0, 5)
-        Title.TextXAlignment = Enum.TextXAlignment.Center -- [AJUSTE]: Nome exatamente no Meio da tela
+        Title.TextXAlignment = Enum.TextXAlignment.Center
         LeftBtn.Visible = true
         RightBtn.Visible = true
         WhiteSeparator.Visible = true
         FooterBar.Visible = true
     elseif page == 3 then
         Title.Text = "SPWN EXTENSION"
-        Title.Font = Enum.Font.LuckiestGuy -- [AJUSTE]: Mesma fonte grossa e marcante das abas anteriores
+        Title.Font = Enum.Font.LuckiestGuy
         Title.Size = UDim2.new(1, -120, 0, 50)
         Title.Position = UDim2.new(0, 55, 0, 5) 
-        Title.TextXAlignment = Enum.TextXAlignment.Left -- Alinhado ao lado do botão voltar (<)
+        Title.TextXAlignment = Enum.TextXAlignment.Left
         LeftBtn.Visible = true
         RightBtn.Visible = false
         WhiteSeparator.Visible = false 
@@ -155,6 +155,7 @@ LeftBtn.MouseButton1Click:Connect(function() if currentPage > 1 then updateNavig
 
 -- 5. BANCO DE DADOS DOS SCRIPTS (Aba 2)
 local ScriptData = {
+    ["HUMANOID STATUS VIEW"] = "https://raw.githubusercontent.com/YuMAID369/Humanoid-Status-VIEW-/refs/heads/main/SPWNCUB",
     ["FLY GUI MARK"] = "https://raw.githubusercontent.com/YuMAID369/MARK-V1-FLY-GUI-/refs/heads/main/MARK%20FLY%20GUI%20V2",
     ["BAN HOUSE"] = "https://raw.githubusercontent.com/YuMAID369/BAN-HOUSE-/refs/heads/main/BrookHaven",
     ["INSPECIONAR AVATAR"] = "https://raw.githubusercontent.com/YuMAID369/INSPECT-AV2/refs/heads/main/idsAV2",
@@ -164,9 +165,9 @@ local ScriptData = {
     ["MANOPLA V1"] = "https://raw.githubusercontent.com/YuMAID369/MANOPLA-V2/refs/heads/main/HAND",
     ["INFINITY YIELD"] = "https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source",
     ["TP TOOL"] = "https://raw.githubusercontent.com/YuMAID369/TP-TOOL-v1/refs/heads/main/TP%20Tool",
-    ["SCORE A POINT"] = "https://raw.githubusercontent.com/YuMAID369/Teletransporte-/refs/heads/main/SpawnCUB",
+    ["TP POINT"] = "https://raw.githubusercontent.com/YuMAID369/Teletransporte-/refs/heads/main/SpawnCUB",
     ["FREE CAM"] = "https://raw.githubusercontent.com/YuMAID369/SpawnCam/refs/heads/main/Universal%20Cam",
-    ["CHAT PV MI"] = "https://rawscripts.net/raw/Brookhaven-RP-Mickey-Chat-85762",
+    ["CHAT MICKEY"] = "https://rawscripts.net/raw/Brookhaven-RP-Mickey-Chat-85762",
     ["TELEKINESIS"] = "https://raw.githubusercontent.com/YuMAID369/TELEKINESIS-/refs/heads/main/Telekinesis%20Tool",
     ["FLING BALL V1"] = "https://raw.githubusercontent.com/YuMAID369/Fling-Ball-Cubnit-V1/refs/heads/main/Kill%20Ball%20V1",
     ["SPEED EMOTE"] = "https://raw.githubusercontent.com/YuMAID369/CubnitSpeedEmote/refs/heads/main/EmoteSpeed",
@@ -187,19 +188,18 @@ end
 
 -- 5.1 GERAÇÃO DOS BOTÕES DE EXTENSÃO (Aba 3)
 local ExtensionButtons = {
-    [1] = {name = "HUMANOID VIEW STATUS", link = ""},
-    [2] = {name = "ABA 4", link = ""},
-    [3] = {name = "ABA 5", link = ""},
-    [4] = {name = "ABA 6", link = ""},
-    [5] = {name = "ABA 7", link = ""},
-    [6] = {name = "ABA 8", link = ""},
-    [7] = {name = "ABA 9", link = ""},
-    [8] = {name = "ABA 10", link = ""},
-    [9] = {name = "ABA 11", link = ""},
+    [1] = {name = "", link = ""},
+    [2] = {name = "", link = ""},
+    [3] = {name = "", link = ""},
+    [4] = {name = "", link = ""},
+    [5] = {name = "", link = ""},
+    [6] = {name = "", link = ""},
+    [7] = {name = "", link = ""},
+    [8] = {name = "", link = ""},
+    [9] = {name = "", link = ""},
 }
 
 for i, data in ipairs(ExtensionButtons) do
-    -- [AJUSTADO]: Fonte alterada para SourceSansBold e tamanho aumentado para 15 (Mais destacado e visível)
     local extBtn = Create("TextButton", ExtGridContainer, {BackgroundColor3 = Color3.fromRGB(50,50,50), Text = data.name, TextColor3 = Color3.fromRGB(255,255,255), TextSize = 15, Font = Enum.Font.SourceSansBold, TextWrapped = true})
     Create("UICorner", extBtn, {CornerRadius = UDim.new(0, 2)})
     if data.link ~= "" then
