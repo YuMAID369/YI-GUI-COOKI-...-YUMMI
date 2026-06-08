@@ -155,6 +155,7 @@ LeftBtn.MouseButton1Click:Connect(function() if currentPage > 1 then updateNavig
 
 -- 5. BANCO DE DADOS DOS SCRIPTS (Aba 2)
 local ScriptData = {
+    ["TIME STOP V1 BETA"] = "https://raw.githubusercontent.com/YuMAID369/TIME-STOP-V1-SPWN-/refs/heads/main/Stop%20time%20SpwnCub",
     ["HUMANOID STATUS VIEW"] = "https://raw.githubusercontent.com/YuMAID369/Humanoid-Status-VIEW-/refs/heads/main/SPWNCUB",
     ["FLY GUI MARK"] = "https://raw.githubusercontent.com/YuMAID369/MARK-V1-FLY-GUI-/refs/heads/main/MARK%20FLY%20GUI%20V2",
     ["BAN HOUSE"] = "https://raw.githubusercontent.com/YuMAID369/BAN-HOUSE-/refs/heads/main/BrookHaven",
