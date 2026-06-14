@@ -47,11 +47,11 @@ Create("UIStroke", MainFrame, {Color = Color3.fromRGB(255, 255, 255), Thickness 
 
 -- 3. CABEÇALHO E NAVEGAÇÃO
 local HeaderBar = Create("Frame", MainFrame, {Size = UDim2.new(1, 0, 0, 65), BackgroundTransparency = 1})
-local Title = Create("TextLabel", HeaderBar, {Size = UDim2.new(1, 0, 0, 50), Position = UDim2.new(0, 0, 0, 5), BackgroundTransparency = 1, Text = "Sobre o CUBNIT/ Spawnismo", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 24, Font = Enum.Font.LuckiestGuy, TextWrapped = true, TextXAlignment = Enum.TextXAlignment.Center})
+local Title = Create("TextLabel", HeaderBar, {Size = UDim2.new(1, 0, 0, 50), Position = UDim2.new(0, 0, 0, 5), BackgroundTransparency = 1, Text = "Sobre o CUBNIT/ Spawnismo", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 22, Font = Enum.Font.LuckiestGuy, TextWrapped = true, TextXAlignment = Enum.TextXAlignment.Center, TextYAlignment = Enum.TextYAlignment.Center})
 local WhiteSeparator = Create("Frame", HeaderBar, {Name = "WhiteSeparator", Size = UDim2.new(1, -20, 0, 7), Position = UDim2.new(0.5, 0, 0, 58), AnchorPoint = Vector2.new(0.5, 0), BackgroundColor3 = Color3.fromRGB(255,255,255), BorderSizePixel = 0})
 
-local LeftBtn = Create("TextButton", HeaderBar, {Size = UDim2.new(0, 38, 0, 38), Position = UDim2.new(0, 10, 0, 10), BackgroundColor3 = Color3.fromRGB(255,255,255), Text = "<", TextColor3 = Color3.fromRGB(0,0,0), TextSize = 28, Font = Enum.Font.SourceSansBold, Visible = false})
-local RightBtn = Create("TextButton", HeaderBar, {Size = UDim2.new(0, 38, 0, 38), Position = UDim2.new(1, -48, 0, 10), BackgroundColor3 = Color3.fromRGB(255,255,255), Text = ">", TextColor3 = Color3.fromRGB(0,0,0), TextSize = 28, Font = Enum.Font.SourceSansBold})
+local LeftBtn = Create("TextButton", HeaderBar, {Size = UDim2.new(0, 38, 0, 38), Position = UDim2.new(0, 10, 0, 10), BackgroundColor3 = Color3.fromRGB(255,255,255), Text = "<", TextColor3 = Color3.fromRGB(0,0,0), TextSize = 28, Font = Enum.Font.SourceSansBold, Visible = false, ZIndex = 10})
+local RightBtn = Create("TextButton", HeaderBar, {Size = UDim2.new(0, 38, 0, 38), Position = UDim2.new(1, -48, 0, 10), BackgroundColor3 = Color3.fromRGB(255,255,255), Text = ">", TextColor3 = Color3.fromRGB(0,0,0), TextSize = 28, Font = Enum.Font.SourceSansBold, ZIndex = 10})
 Create("UICorner", LeftBtn, {CornerRadius = UDim.new(0, 6)}); Create("UICorner", RightBtn, {CornerRadius = UDim.new(0, 6)})
 
 -- 4. PÁGINAS DE CONTEÚDO
@@ -64,37 +64,12 @@ Create("TextLabel", PageAbout, {Size = UDim2.new(1, -20, 0, 520), BackgroundTran
 local PageScripts = Create("ScrollingFrame", MainFrame, {Size = UDim2.new(1, -15, 1, -145), Position = UDim2.new(0, 8, 0, 75), BackgroundTransparency = 1, Visible = false, CanvasSize = UDim2.new(0, 0, 0, 850), ScrollBarThickness = 3})
 Create("UIGridLayout", PageScripts, {CellSize = UDim2.new(0, 96, 0, 52), CellPadding = UDim2.new(0, 5, 0, 6), HorizontalAlignment = Enum.HorizontalAlignment.Center})
 
--- PÁGINA 3: ABA DE EXTENSÃO
-local PageExtension = Create("Frame", MainFrame, {Size = UDim2.new(1, 0, 1, -65), Position = UDim2.new(0, 0, 0, 65), BackgroundTransparency = 1, Visible = false})
+-- PÁGINA 3: PAINEL TOOL
+local PageTools = Create("ScrollingFrame", MainFrame, {Size = UDim2.new(1, -16, 1, -145), Position = UDim2.new(0, 8, 0, 75), BackgroundTransparency = 1, Visible = false, CanvasSize = UDim2.new(0, 0, 0, 320), ScrollBarThickness = 3})
+-- Tamanho aumentado (CellSize) e ajuste de padding para esticar os ícones perfeitamente pela interface
+Create("UIGridLayout", PageTools, {CellSize = UDim2.new(0, 64, 0, 68), CellPadding = UDim2.new(0, 4, 0, 8), HorizontalAlignment = Enum.HorizontalAlignment.Center})
 
--- Lado Esquerdo
-local LeftScrollContent = Create("ScrollingFrame", PageExtension, {Size = UDim2.new(0, 248, 1, -5), Position = UDim2.new(0, 12, 0, 5), BackgroundTransparency = 1, CanvasSize = UDim2.new(0, 0, 0, 480), ScrollBarThickness = 3, ScrollingDirection = Enum.ScrollingDirection.Y})
-local ExtSubTitle = Create("TextLabel", LeftScrollContent, {Size = UDim2.new(1, 0, 0, 25), Position = UDim2.new(0, 0, 0, 0), BackgroundTransparency = 1, Text = "Aba de Extensão", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 20, Font = Enum.Font.SourceSansBold, TextXAlignment = Enum.TextXAlignment.Left})
-local ExtText = Create("TextLabel", LeftScrollContent, {Size = UDim2.new(1, -5, 0, 235), Position = UDim2.new(0, 0, 0, 35), BackgroundTransparency = 1, Text = "A partir desta etapa, as próximas funções do script serão desbloqueadas por meio do sistema de extensões. Para acessar novas abas e recursos avançados (como as abas 4, 5, 6 e posteriores), será necessário navegar entre os scripts da sequência Spwn e avançar para as próximas extensões disponíveis.\n\nEm resumo, as funções mais avançadas não ficarão concentradas em um único script, exigindo que você explore o SPWNCUB.", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 17, Font = Enum.Font.SourceSansBold, TextWrapped = true, TextXAlignment = Enum.TextXAlignment.Left, TextYAlignment = Enum.TextYAlignment.Top})
-
--- Grade de botões internos (Aba 3)
-local ExtGridContainer = Create("Frame", LeftScrollContent, {Size = UDim2.new(1, 0, 0, 180), Position = UDim2.new(0, 0, 0, 275), BackgroundTransparency = 1})
-local ExtGridLayout = Create("UIGridLayout", ExtGridContainer, {CellSize = UDim2.new(0, 74, 0, 50), CellPadding = UDim2.new(0, 6, 0, 8), HorizontalAlignment = Enum.HorizontalAlignment.Left})
-
--- Linha Divisória Branca Vertical
-local VerticalSeparator = Create("Frame", PageExtension, {Size = UDim2.new(0, 4, 1, -5), Position = UDim2.new(0, 268, 0, 0), BackgroundColor3 = Color3.fromRGB(255,255,255), BorderSizePixel = 0})
-
--- Lado Direito Fixo
-local RightFixedPanel = Create("Frame", MainFrame, {Size = UDim2.new(0, 136, 1, -8), Position = UDim2.new(0, 278, 0, 4), BackgroundColor3 = Color3.fromRGB(0,0,0), BorderSizePixel = 1, BorderColor3 = Color3.fromRGB(60,60,60), Visible = false})
-
--- Bloco de topo Branco para o título "The Spawn"
-local WhiteHeaderBlock = Create("Frame", RightFixedPanel, {Size = UDim2.new(1, -4, 0, 25), Position = UDim2.new(0, 2, 0, 2), BackgroundColor3 = Color3.fromRGB(255,255,255), BorderSizePixel = 0})
-local SpawnTitle = Create("TextLabel", WhiteHeaderBlock, {Size = UDim2.new(1, 0, 1, 0), Position = UDim2.new(0, 0, 0, 0), BackgroundTransparency = 1, Text = "The Spawn", TextColor3 = Color3.fromRGB(0,0,0), TextSize = 18, Font = Enum.Font.SourceSansBold})
-
--- Símbolo do Sol centralizado
-local SpawnImgContainer = Create("Frame", RightFixedPanel, {Size = UDim2.new(1, -4, 0, 120), Position = UDim2.new(0, 2, 0, 32), BackgroundColor3 = Color3.fromRGB(0,0,0), BorderSizePixel = 0})
-local SpawnMainIcon = Create("ImageLabel", SpawnImgContainer, {Size = UDim2.new(0, 110, 0, 110), Position = UDim2.new(0.5, -55, 0.4, -45), BackgroundTransparency = 1, Image = "rbxassetid://85337967115080", ImageColor3 = Color3.fromRGB(255,255,255)})
-
--- Linhas Brancas Grossas e Proximais
-local LineDec1 = Create("Frame", RightFixedPanel, {Size = UDim2.new(1, 0, 0, 18), Position = UDim2.new(0, 0, 0, 180), BackgroundColor3 = Color3.fromRGB(255,255,255), BorderSizePixel = 0})
-local LineDec2 = Create("Frame", RightFixedPanel, {Size = UDim2.new(1, 0, 0, 22), Position = UDim2.new(0, 0, 0, 208), BackgroundColor3 = Color3.fromRGB(255,255,255), BorderSizePixel = 0})
-
--- 4.1 DECLARAÇÃO DO RODAPÉ (Abas 1 e 2)
+-- 4.1 DECLARAÇÃO DO RODAPÉ
 local FooterBar = Create("Frame", MainFrame, {Size = UDim2.new(1, 0, 0, 65), Position = UDim2.new(0, 0, 1, -65), BackgroundColor3 = Color3.fromRGB(22,22,22), BorderSizePixel = 0})
 local CloseBtn = Create("TextButton", FooterBar, {Name = "CloseBtn", Size = UDim2.new(0, 160, 0, 42), Position = UDim2.new(0.5, -80, 0.5, -21), BackgroundColor3 = Color3.fromRGB(45,45,45), Text = "Fechar", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 24, Font = Enum.Font.SourceSansBold})
 Create("UICorner", CloseBtn, {CornerRadius = UDim.new(0, 6)})
@@ -107,45 +82,33 @@ end
 CreateSymbol(UDim2.new(0, 15, 0.5, -22)); CreateSymbol(UDim2.new(1, -60, 0.5, -22))
 
 
--- Sistema de Navegação Dinâmica entre Páginas (Ajustes de Posição, Alinhamento e Fontes)
+-- Sistema de Navegação Dinâmica entre Páginas (Ajustes de Alinhamento e Centralização)
 local currentPage = 1
 local function updateNavigation(page)
     currentPage = page
     PageAbout.Visible = (page == 1)
     PageScripts.Visible = (page == 2)
-    PageExtension.Visible = (page == 3)
-    RightFixedPanel.Visible = (page == 3)
+    PageTools.Visible = (page == 3)
 
     if page == 1 then
         Title.Text = "Sobre o CUBNIT/Spawnismo"
-        Title.Font = Enum.Font.LuckiestGuy
         Title.Size = UDim2.new(1, 0, 0, 50)
-        Title.Position = UDim2.new(0, 0, 0, 6)
-        Title.TextXAlignment = Enum.TextXAlignment.Center
+        Title.Position = UDim2.new(0, 0, 0, 5)
         LeftBtn.Visible = false
         RightBtn.Visible = true
-        WhiteSeparator.Visible = true
-        FooterBar.Visible = true
     elseif page == 2 then
         Title.Text = "BROOKHAVEN"
-        Title.Font = Enum.Font.LuckiestGuy
-        Title.Size = UDim2.new(1, 0, 0, 55)
+        Title.Size = UDim2.new(1, 0, 0, 50)
         Title.Position = UDim2.new(0, 0, 0, 5)
-        Title.TextXAlignment = Enum.TextXAlignment.Center
         LeftBtn.Visible = true
         RightBtn.Visible = true
-        WhiteSeparator.Visible = true
-        FooterBar.Visible = true
     elseif page == 3 then
-        Title.Text = "SPWN EXTENSION"
-        Title.Font = Enum.Font.LuckiestGuy
-        Title.Size = UDim2.new(1, -120, 0, 50)
-        Title.Position = UDim2.new(0, 55, 0, 5) 
-        Title.TextXAlignment = Enum.TextXAlignment.Left
+        Title.Text = "Painel Tool ( Spwn Shortcuts )"
+        -- Dá margem nas laterais para que os botões < e > não fiquem em cima do texto longo
+        Title.Size = UDim2.new(1, -100, 0, 50)
+        Title.Position = UDim2.new(0, 50, 0, 5)
         LeftBtn.Visible = true
         RightBtn.Visible = false
-        WhiteSeparator.Visible = false 
-        FooterBar.Visible = false
     end
 end
 
@@ -188,26 +151,44 @@ for name, link in pairs(ScriptData) do
     btn.MouseButton1Click:Connect(function() loadstring(game:HttpGet(link))() end)
 end
 
--- 5.1 GERAÇÃO DOS BOTÕES DE EXTENSÃO (Aba 3)
-local ExtensionButtons = {
-    [1] = {name = "", link = ""},
-    [2] = {name = "", link = ""},
-    [3] = {name = "", link = ""},
-    [4] = {name = "", link = ""},
-    [5] = {name = "", link = ""},
-    [6] = {name = "", link = ""},
-    [7] = {name = "", link = ""},
-    [8] = {name = "", link = ""},
-    [9] = {name = "", link = ""},
+
+-- 5.1 BANCO DE DADOS E GERAÇÃO DA ABA 3 (Design Corrigido de Acordo com a Imagem Ideal)
+local ToolData = {
+    {name = "Fling Ball Tool", link = "https://raw.githubusercontent.com/YuMAID369/Fling-Ball-Cubnit-V1/refs/heads/main/Kill%20Ball%20V1"},
+    {name = "TOOL TELEKINESIS", link = "https://raw.githubusercontent.com/YuMAID369/TELEKINESIS-/refs/heads/main/Telekinesis%20Tool"},
+    {name = "TP TOOL", link = "https://raw.githubusercontent.com/YuMAID369/TP-TOOL-v1/refs/heads/main/TP%20Tool"},
+    {name = "TOOL FLING All SELECT V1", link = "https://raw.githubusercontent.com/YuMAID369/Atom-selector-/refs/heads/main/Target%20Kill"},
+    {name = "TOOL FLING All SELECT V2", link = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER/refs/heads/main/SPWN%20KILL%20V2%20SELECT"},
+    {name = "SELECT MATTER TP", link = "https://raw.githubusercontent.com/YuMAID369/ToolSpwnTp/refs/heads/main/SPWNTPtool"},
+    -- Slots Vazios (Segunda fileira da imagem)
+    {name = "", link = ""},
+    {name = "", link = ""},
+    {name = "", link = ""},
+    {name = "", link = ""},
+    {name = "", link = ""},
+    {name = "", link = ""},
 }
 
-for i, data in ipairs(ExtensionButtons) do
-    local extBtn = Create("TextButton", ExtGridContainer, {BackgroundColor3 = Color3.fromRGB(50,50,50), Text = data.name, TextColor3 = Color3.fromRGB(255,255,255), TextSize = 15, Font = Enum.Font.SourceSansBold, TextWrapped = true})
-    Create("UICorner", extBtn, {CornerRadius = UDim.new(0, 2)})
+for _, data in ipairs(ToolData) do
+    local toolBtn = Create("TextButton", PageTools, {
+        BackgroundColor3 = Color3.fromRGB(80,80,80),
+        Text = data.name,
+        TextColor3 = Color3.fromRGB(255,255,255),
+        TextSize = 13, -- Fonte ligeiramente menor para encaixar perfeitamente em múltiplos aparelhos
+        Font = Enum.Font.SourceSansBold,
+        TextWrapped = true,
+        TextXAlignment = Enum.TextXAlignment.Center,
+        TextYAlignment = Enum.TextYAlignment.Center
+    })
+    Create("UICorner", toolBtn, {CornerRadius = UDim.new(0, 3)})
+    
     if data.link ~= "" then
-        extBtn.MouseButton1Click:Connect(function() loadstring(game:HttpGet(data.link))() end)
+        toolBtn.MouseButton1Click:Connect(function() loadstring(game:HttpGet(data.link))() end)
+    else
+        toolBtn.AutoButtonColor = false
     end
 end
+
 
 -- 6. LÓGICA DO BOTÃO OPEN
 local lastClick = 0
