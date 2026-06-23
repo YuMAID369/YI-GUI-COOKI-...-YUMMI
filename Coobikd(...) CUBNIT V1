@@ -66,15 +66,14 @@ Create("UIGridLayout", PageScripts, {CellSize = UDim2.new(0, 96, 0, 52), CellPad
 
 -- PÁGINA 3: PAINEL TOOL
 local PageTools = Create("ScrollingFrame", MainFrame, {Size = UDim2.new(1, -16, 1, -145), Position = UDim2.new(0, 8, 0, 75), BackgroundTransparency = 1, Visible = false, CanvasSize = UDim2.new(0, 0, 0, 200), ScrollBarThickness = 0, ScrollingEnabled = false})
--- CellSize otimizada para 66x72 para preencher toda a largura e aumentar visivelmente o tamanho dos botões
 Create("UIGridLayout", PageTools, {CellSize = UDim2.new(0, 64, 0, 72), CellPadding = UDim2.new(0, 4, 0, 8), HorizontalAlignment = Enum.HorizontalAlignment.Center})
 
--- Linha Branca de Divisão Inferior (Separador de Rolamento Vertical da imagem 1000040713.png)
+-- Linha Branca de Divisão Inferior
 local WhiteBarSeparator = Create("Frame", MainFrame, {Name = "WhiteBarSeparator", Size = UDim2.new(1, -20, 0, 4), Position = UDim2.new(0.5, 0, 1, -78), AnchorPoint = Vector2.new(0.5, 0), BackgroundColor3 = Color3.fromRGB(255,255,255), BorderSizePixel = 0, Visible = false})
 
 -- 4.1 DECLARAÇÃO DO RODAPÉ
 local FooterBar = Create("Frame", MainFrame, {Size = UDim2.new(1, 0, 0, 65), Position = UDim2.new(0, 0, 1, -65), BackgroundColor3 = Color3.fromRGB(22,22,22), BorderSizePixel = 0})
-local CloseBtn = Create("TextButton", FooterBar, {Name = "CloseBtn", Size = UDim2.new(0, 160, 0, 42), Position = UDim2.new(0.5, -80, 0.5, -21), BackgroundColor3 = Color3.fromRGB(45,45,45), Text = "Fechar", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 24, Font = Enum.Font.SourceSansBold})
+local CloseBtn = Create("TextButton", FooterBar, {Name = "CloseBtn", Size = UDim2.new(0, 160, 0, 42), Position = UDim2.new(0.5, -80, 0.5, -21), BackgroundColor3 = Color3.fromRGB(45,45,45), Text = "Close", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 24, Font = Enum.Font.SourceSansBold})
 Create("UICorner", CloseBtn, {CornerRadius = UDim.new(0, 6)})
 Create("UIStroke", CloseBtn, {Color = Color3.fromRGB(150,150,150)})
 CloseBtn.MouseButton1Click:Connect(function() MainFrame.Visible = false end)
@@ -92,7 +91,7 @@ local function updateNavigation(page)
     PageAbout.Visible = (page == 1)
     PageScripts.Visible = (page == 2)
     PageTools.Visible = (page == 3)
-    WhiteBarSeparator.Visible = (page == 3) -- Linha branca exclusiva da Aba 3
+    WhiteBarSeparator.Visible = (page == 3)
 
     if page == 1 then
         Title.Text = "Sobre o CUBNIT/Spawnismo"
@@ -108,7 +107,6 @@ local function updateNavigation(page)
         RightBtn.Visible = true
     elseif page == 3 then
         Title.Text = "Painel Tool ( Spwn Shortcuts )"
-        -- Centralização perfeita e livre de colisões com as setas laterais
         Title.Size = UDim2.new(1, -100, 0, 50)
         Title.Position = UDim2.new(0, 50, 0, 5)
         LeftBtn.Visible = true
@@ -146,7 +144,8 @@ local ScriptData = {
     ["SKYBOX NUKE"] = "https://raw.githubusercontent.com/YuMAID369/SKYBOX-V1/refs/heads/main/SKYBOX-SPAWN",
     ["SOUND BOX GUI"] = "https://raw.githubusercontent.com/YuMAID369/Id-Brook-haven-m-sica/refs/heads/main/SpwnSom",
     ["TOOL FLING ALL SELECT"] = "https://raw.githubusercontent.com/YuMAID369/Atom-selector-/refs/heads/main/Target%20Kill",
-    ["SELECT MATTER V2"] = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER/refs/heads/main/SPWN%20KILL%20V2%20SELECT"
+    ["SELECT MATTER V2"] = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER/refs/heads/main/SPWN%20KILL%20V2%20SELECT",
+    ["SELECT MATTER V3"] = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER-V3-/refs/heads/main/FLING%20V3%20TOOL%20SPWN"
 }
 
 for name, link in pairs(ScriptData) do
@@ -156,16 +155,16 @@ for name, link in pairs(ScriptData) do
 end
 
 
--- 5.1 BANCO DE DADOS E GERAÇÃO DA ABA 3 (Ajustes de Escuridão, Margens e Textos Maiores)
+-- 5.1 BANCO DE DADOS E GERAÇÃO DA ABA 3 (Padronizada com a fonte LuckiestGuy de Alto Impacto)
 local ToolData = {
-    {name = "Fling Ball Tool", link = "https://raw.githubusercontent.com/YuMAID369/Fling-Ball-Cubnit-V1/refs/heads/main/Kill%20Ball%20V1"},
-    {name = "TOOL TELEKINESIS", link = "https://raw.githubusercontent.com/YuMAID369/TELEKINESIS-/refs/heads/main/Telekinesis%20Tool"},
+    {name = "Fling Ball\nTool", link = "https://raw.githubusercontent.com/YuMAID369/Fling-Ball-Cubnit-V1/refs/heads/main/Kill%20Ball%20V1"},
+    {name = "TOOL\nTELEKINESIS", link = "https://raw.githubusercontent.com/YuMAID369/TELEKINESIS-/refs/heads/main/Telekinesis%20Tool"},
     {name = "TP TOOL", link = "https://raw.githubusercontent.com/YuMAID369/TP-TOOL-v1/refs/heads/main/TP%20Tool"},
-    {name = "TOOL FLING All SELECT V1", link = "https://raw.githubusercontent.com/YuMAID369/Atom-selector-/refs/heads/main/Target%20Kill"},
-    {name = "TOOL FLING All SELECT V2", link = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER/refs/heads/main/SPWN%20KILL%20V2%20SELECT"},
-    {name = "SELECT MATTER TP", link = "https://raw.githubusercontent.com/YuMAID369/ToolSpwnTp/refs/heads/main/SPWNTPtool"},
-    -- Slots Vazios (Preenchimento Estético Uniforme)
-    {name = "", link = ""},
+    {name = "TOOL FLING\nAll SELECT V1", link = "https://raw.githubusercontent.com/YuMAID369/Atom-selector-/refs/heads/main/Target%20Kill"},
+    {name = "TOOL FLING\nAll SELECT V2", link = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER/refs/heads/main/SPWN%20KILL%20V2%20SELECT"},
+    {name = "SELECT\nMATTER TP", link = "https://raw.githubusercontent.com/YuMAID369/ToolSpwnTp/refs/heads/main/SPWNTPtool"},
+    {name = "SELECT\nMATTER V3", link = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER-V3-/refs/heads/main/FLING%20V3%20TOOL%20SPWN"},
+    -- Slots Vazios para preenchimento estético simétrico
     {name = "", link = ""},
     {name = "", link = ""},
     {name = "", link = ""},
@@ -175,17 +174,17 @@ local ToolData = {
 
 for _, data in ipairs(ToolData) do
     local toolBtn = Create("TextButton", PageTools, {
-        BackgroundColor3 = Color3.fromRGB(45, 45, 45), -- Tom cinza escuro idêntico à imagem original
+        BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         Text = data.name,
         TextColor3 = Color3.fromRGB(255, 255, 255),
-        TextSize = 13, -- Fonte ideal e nítida para botões desse tamanho
-        Font = Enum.Font.SourceSansBold,
+        TextSize = 16, -- Mantido o tamanho grande para excelente visibilidade
+        Font = Enum.Font.LuckiestGuy, -- Padronizado em todos os botões da grade!
         TextWrapped = true,
         TextXAlignment = Enum.TextXAlignment.Center,
         TextYAlignment = Enum.TextYAlignment.Center
     })
     Create("UICorner", toolBtn, {CornerRadius = UDim.new(0, 2)})
-    
+
     if data.link ~= "" then
         toolBtn.MouseButton1Click:Connect(function() loadstring(game:HttpGet(data.link))() end)
     else
