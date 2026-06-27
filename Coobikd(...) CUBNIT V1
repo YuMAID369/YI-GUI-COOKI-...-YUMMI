@@ -60,8 +60,8 @@ Create("UICorner", LeftBtn, {CornerRadius = UDim.new(0, 6)}); Create("UICorner",
 local PageAbout = Create("ScrollingFrame", MainFrame, {Size = UDim2.new(1, -20, 1, -145), Position = UDim2.new(0, 12, 0, 75), BackgroundTransparency = 1, CanvasSize = UDim2.new(0, 0, 0, 420), ScrollBarThickness = 3, ScrollingDirection = Enum.ScrollingDirection.Y, Visible = true})
 Create("TextLabel", PageAbout, {Size = UDim2.new(1, -20, 0, 520), BackgroundTransparency = 1, Text = "[CUBNIT // ACCESS LOG]\nSe você encontrou esta interface, significa que o Spawn pediu sua entrada.\n\nPoucos conseguem enxergar os sinais escondidos entre os mundos. Menos ainda conseguem compreender o que realmente existe por trás do Spawn.\n\nO projeto CUBNIT não foi criado apenas como uma ferramenta. Ele é um fragmento em desenvolvimento de algo maior.\nOs antigos exploradores acreditavam que certos artefatos esquecidos do Roblox carregavam propriedades anormais. Ferramentas removidas. Sistemas abandonados. Objetos capazes de alterar o equilíbrio entre ordem e caos.\n\nSe desejar explorar os fragmentos em desenvolvimento e, consequentemente, não os quiser mais, clique duas vezes rapidamente para fechar o fragmento.", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 19, Font = Enum.Font.SourceSansBold, TextWrapped = true, TextXAlignment = Enum.TextXAlignment.Left, TextYAlignment = Enum.TextYAlignment.Top})
 
--- PÁGINA 2: SCRIPTS (BROOKHAVEN)
-local PageScripts = Create("ScrollingFrame", MainFrame, {Size = UDim2.new(1, -15, 1, -145), Position = UDim2.new(0, 8, 0, 75), BackgroundTransparency = 1, Visible = false, CanvasSize = UDim2.new(0, 0, 0, 850), ScrollBarThickness = 3})
+-- PÁGINA 2: SCRIPTS (BROOKHAVEN) - CanvasSize aumentado preventivamente para acomodar novos scripts
+local PageScripts = Create("ScrollingFrame", MainFrame, {Size = UDim2.new(1, -15, 1, -145), Position = UDim2.new(0, 8, 0, 75), BackgroundTransparency = 1, Visible = false, CanvasSize = UDim2.new(0, 0, 0, 900), ScrollBarThickness = 3})
 Create("UIGridLayout", PageScripts, {CellSize = UDim2.new(0, 96, 0, 52), CellPadding = UDim2.new(0, 5, 0, 6), HorizontalAlignment = Enum.HorizontalAlignment.Center})
 
 -- PÁGINA 3: PAINEL TOOL
@@ -118,7 +118,7 @@ RightBtn.MouseButton1Click:Connect(function() if currentPage < 3 then updateNavi
 LeftBtn.MouseButton1Click:Connect(function() if currentPage > 1 then updateNavigation(currentPage - 1) end end)
 
 
--- 5. BANCO DE DADOS DOS SCRIPTS (Aba 2)
+-- 5. BANCO DE DADOS DOS SCRIPTS (Aba 2) - Inserido o "VIEW V2 VRP"
 local ScriptData = {
     ["SELECT MATTER TP"] = "https://raw.githubusercontent.com/YuMAID369/ToolSpwnTp/refs/heads/main/SPWNTPtool",
     ["TIME STOP V1 BETA"] = "https://raw.githubusercontent.com/YuMAID369/TIME-STOP-V1-SPWN-/refs/heads/main/Stop%20time%20SpwnCub",
@@ -145,7 +145,8 @@ local ScriptData = {
     ["SOUND BOX GUI"] = "https://raw.githubusercontent.com/YuMAID369/Id-Brook-haven-m-sica/refs/heads/main/SpwnSom",
     ["TOOL FLING ALL SELECT"] = "https://raw.githubusercontent.com/YuMAID369/Atom-selector-/refs/heads/main/Target%20Kill",
     ["SELECT MATTER V2"] = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER/refs/heads/main/SPWN%20KILL%20V2%20SELECT",
-    ["SELECT MATTER V3"] = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER-V3-/refs/heads/main/FLING%20V3%20TOOL%20SPWN"
+    ["SELECT MATTER V3"] = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER-V3-/refs/heads/main/FLING%20V3%20TOOL%20SPWN",
+    ["VIEW V2 VRP"] = "https://raw.githubusercontent.com/YuMAID369/UI-View-V2-VPR/refs/heads/main/V2View%20VPR"
 }
 
 for name, link in pairs(ScriptData) do
@@ -177,8 +178,8 @@ for _, data in ipairs(ToolData) do
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         Text = data.name,
         TextColor3 = Color3.fromRGB(255, 255, 255),
-        TextSize = 16, -- Mantido o tamanho grande para excelente visibilidade
-        Font = Enum.Font.LuckiestGuy, -- Padronizado em todos os botões da grade!
+        TextSize = 16,
+        Font = Enum.Font.LuckiestGuy,
         TextWrapped = true,
         TextXAlignment = Enum.TextXAlignment.Center,
         TextYAlignment = Enum.TextYAlignment.Center
