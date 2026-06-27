@@ -15,7 +15,7 @@ local IntroGui = Create("ScreenGui", CoreGui, {Name = "CubnitSpinIntro", ResetOn
 
 -- Configuração do Efeito Sonoro de Clique (Injetado na ScreenGui)
 local ClickSound = Create("Sound", ScreenGui, {
-    SoundId = "117700378789109",
+    SoundId = "105309724097406",
     Volume = 1,
     PlayOnRemove = false
 })
