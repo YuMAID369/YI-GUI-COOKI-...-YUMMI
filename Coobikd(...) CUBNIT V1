@@ -13,6 +13,20 @@ end
 local ScreenGui = Create("ScreenGui", PlayerGui, {Name = "BrookHaven_V16_Final", ResetOnSpawn = false})
 local IntroGui = Create("ScreenGui", CoreGui, {Name = "CubnitSpinIntro", ResetOnSpawn = false, IgnoreGuiInset = true, DisplayOrder = 999999})
 
+-- Configuração do Efeito Sonoro de Clique (Injetado na ScreenGui)
+local ClickSound = Create("Sound", ScreenGui, {
+    SoundId = "rbxassetid://81779033550290",
+    Volume = 1,
+    PlayOnRemove = false
+})
+
+local function PlayClickSound()
+    if ClickSound.IsPlaying then
+        ClickSound:Stop() -- Interrompe e reinicia caso o usuário clique muito rápido
+    end
+    ClickSound:Play()
+end
+
 -- Elementos da Intro Animação
 local Background = Create("Frame", IntroGui, {Name = "Background", Size = UDim2.new(1, 1000, 1, 1000), Position = UDim2.new(0, -500, 0, -500), BackgroundColor3 = Color3.fromRGB(0,0,0), BackgroundTransparency = 1, BorderSizePixel = 0, ZIndex = 9999})
 local IconImage = Create("ImageLabel", IntroGui, {Name = "SpinIcon", BackgroundTransparency = 1, Image = "rbxassetid://130275641191868", ImageColor3 = Color3.fromRGB(255,255,255), ImageTransparency = 1, Size = UDim2.new(0, 300, 0, 300), AnchorPoint = Vector2.new(0.5,0.5), ZIndex = 10000, Position = UDim2.new(-0.2, 0, 1.2, 0), Rotation = -180})
@@ -60,7 +74,7 @@ Create("UICorner", LeftBtn, {CornerRadius = UDim.new(0, 6)}); Create("UICorner",
 local PageAbout = Create("ScrollingFrame", MainFrame, {Size = UDim2.new(1, -20, 1, -145), Position = UDim2.new(0, 12, 0, 75), BackgroundTransparency = 1, CanvasSize = UDim2.new(0, 0, 0, 420), ScrollBarThickness = 3, ScrollingDirection = Enum.ScrollingDirection.Y, Visible = true})
 Create("TextLabel", PageAbout, {Size = UDim2.new(1, -20, 0, 520), BackgroundTransparency = 1, Text = "[CUBNIT // ACCESS LOG]\nSe você encontrou esta interface, significa que o Spawn permitiu sua entrada.\n\nPoucos conseguem enxergar os sinais escondidos entre os mundos. Menos ainda conseguem compreender o que realmente existe por trás do Spawn.\n\nO projeto CUBNIT não foi criado apenas como uma ferramenta. Ele é um fragmento em desenvolvimento de algo maior.\nOs antigos exploradores acreditavam que certos artefatos esquecidos do Roblox carregavam propriedades anormais. Ferramentas removidas. Sistemas abandonados. Objetos capazes de alterar o equilíbrio entre ordem e caos.\n\nSe desejar explorar os fragmentos em desenvolvimento e, consequentemente, não os quiser mais, clique duas vezes rapidamente para fechar o fragmento.", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 19, Font = Enum.Font.SourceSansBold, TextWrapped = true, TextXAlignment = Enum.TextXAlignment.Left, TextYAlignment = Enum.TextYAlignment.Top})
 
--- PÁGINA 2: SCRIPTS (BROOKHAVEN) - CanvasSize aumentado preventivamente para acomodar novos scripts
+-- PÁGINA 2: SCRIPTS (BROOKHAVEN)
 local PageScripts = Create("ScrollingFrame", MainFrame, {Size = UDim2.new(1, -15, 1, -145), Position = UDim2.new(0, 8, 0, 75), BackgroundTransparency = 1, Visible = false, CanvasSize = UDim2.new(0, 0, 0, 400), ScrollBarThickness = 3})
 Create("UIGridLayout", PageScripts, {CellSize = UDim2.new(0, 96, 0, 52), CellPadding = UDim2.new(0, 5, 0, 6), HorizontalAlignment = Enum.HorizontalAlignment.Center})
 
@@ -76,7 +90,10 @@ local FooterBar = Create("Frame", MainFrame, {Size = UDim2.new(1, 0, 0, 65), Pos
 local CloseBtn = Create("TextButton", FooterBar, {Name = "CloseBtn", Size = UDim2.new(0, 160, 0, 42), Position = UDim2.new(0.5, -80, 0.5, -21), BackgroundColor3 = Color3.fromRGB(45,45,45), Text = "Close", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 24, Font = Enum.Font.SourceSansBold})
 Create("UICorner", CloseBtn, {CornerRadius = UDim.new(0, 6)})
 Create("UIStroke", CloseBtn, {Color = Color3.fromRGB(150,150,150)})
-CloseBtn.MouseButton1Click:Connect(function() MainFrame.Visible = false end)
+CloseBtn.MouseButton1Click:Connect(function() 
+    PlayClickSound()
+    MainFrame.Visible = false 
+end)
 
 local function CreateSymbol(pos)
     Create("ImageLabel", FooterBar, {Size = UDim2.new(0, 45, 0, 45), Position = pos, BackgroundTransparency = 1, Image = "rbxassetid://130275641191868", ImageColor3 = Color3.fromRGB(255,255,255)})
@@ -114,11 +131,21 @@ local function updateNavigation(page)
     end
 end
 
-RightBtn.MouseButton1Click:Connect(function() if currentPage < 3 then updateNavigation(currentPage + 1) end end)
-LeftBtn.MouseButton1Click:Connect(function() if currentPage > 1 then updateNavigation(currentPage - 1) end end)
+RightBtn.MouseButton1Click:Connect(function() 
+    if currentPage < 3 then 
+        PlayClickSound()
+        updateNavigation(currentPage + 1) 
+    end 
+end)
+LeftBtn.MouseButton1Click:Connect(function() 
+    if currentPage > 1 then 
+        PlayClickSound()
+        updateNavigation(currentPage - 1) 
+    end 
+end)
 
 
--- 5. BANCO DE DADOS DOS SCRIPTS (Aba 2) - Inserido o "VIEW V2 VRP"
+-- 5. BANCO DE DADOS DOS SCRIPTS (Aba 2)
 local ScriptData = {
     ["SELECT MATTER TP"] = "https://raw.githubusercontent.com/YuMAID369/ToolSpwnTp/refs/heads/main/SPWNTPtool",
     ["TIME STOP V1 BETA"] = "https://raw.githubusercontent.com/YuMAID369/TIME-STOP-V1-SPWN-/refs/heads/main/Stop%20time%20SpwnCub",
@@ -152,17 +179,20 @@ local ScriptData = {
 for name, link in pairs(ScriptData) do
     local btn = Create("TextButton", PageScripts, {BackgroundColor3 = Color3.fromRGB(35,35,35), Text = name, TextColor3 = Color3.fromRGB(255,255,255), TextSize = 19, Font = Enum.Font.SourceSansBold, TextWrapped = true})
     Create("UICorner", btn, {CornerRadius = UDim.new(0, 4)})
-    btn.MouseButton1Click:Connect(function() loadstring(game:HttpGet(link))() end)
+    btn.MouseButton1Click:Connect(function() 
+        PlayClickSound()
+        loadstring(game:HttpGet(link))() 
+    end)
 end
 
 
--- 5.1 BANCO DE DADOS E GERAÇÃO DA ABA 3 (Padronizada com a fonte LuckiestGuy de Alto Impacto)
+-- 5.1 BANCO DE DADOS E GERAÇÃO DA ABA 3
 local ToolData = {
     {name = "Fling Ball\nTool", link = "https://raw.githubusercontent.com/YuMAID369/Fling-Ball-Cubnit-V1/refs/heads/main/Kill%20Ball%20V1"},
     {name = "TOOL\nTELEKINESIS", link = "https://raw.githubusercontent.com/YuMAID369/TELEKINESIS-/refs/heads/main/Telekinesis%20Tool"},
     {name = "TP TOOL", link = "https://raw.githubusercontent.com/YuMAID369/TP-TOOL-v1/refs/heads/main/TP%20Tool"},
     {name = "FLING\nAll SELECT V1", link = "https://raw.githubusercontent.com/YuMAID369/Atom-selector-/refs/heads/main/Target%20Kill"},
-    {name = "FLING\nAll SELECTV2", link = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER/refs/heads/main/SPWN%20KILL%20V2%20SELECT"},
+    {name = "FLING\nAll SELECT V2", link = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER/refs/heads/main/SPWN%20KILL%20V2%20SELECT"},
     {name = "SELECT\nMATTER TP", link = "https://raw.githubusercontent.com/YuMAID369/ToolSpwnTp/refs/heads/main/SPWNTPtool"},
     {name = "SELECT\nMATTER V3", link = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER-V3-/refs/heads/main/FLING%20V3%20TOOL%20SPWN"},
     -- Slots Vazios para preenchimento estético simétrico
@@ -187,7 +217,10 @@ for _, data in ipairs(ToolData) do
     Create("UICorner", toolBtn, {CornerRadius = UDim.new(0, 2)})
 
     if data.link ~= "" then
-        toolBtn.MouseButton1Click:Connect(function() loadstring(game:HttpGet(data.link))() end)
+        toolBtn.MouseButton1Click:Connect(function() 
+            PlayClickSound()
+            loadstring(game:HttpGet(data.link))() 
+        end)
     else
         toolBtn.AutoButtonColor = false
     end
@@ -198,7 +231,12 @@ end
 local lastClick = 0
 OpenBtn.MouseButton1Click:Connect(function()
     local currentTime = tick()
-    if (currentTime - lastClick) < 0.35 then ScreenGui:Destroy() else MainFrame.Visible = not MainFrame.Visible end
+    if (currentTime - lastClick) < 0.35 then 
+        ScreenGui:Destroy() 
+    else 
+        PlayClickSound()
+        MainFrame.Visible = not MainFrame.Visible 
+    end
     lastClick = currentTime
 end)
 
