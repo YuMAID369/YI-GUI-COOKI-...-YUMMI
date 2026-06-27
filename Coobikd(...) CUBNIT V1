@@ -161,8 +161,8 @@ local ToolData = {
     {name = "Fling Ball\nTool", link = "https://raw.githubusercontent.com/YuMAID369/Fling-Ball-Cubnit-V1/refs/heads/main/Kill%20Ball%20V1"},
     {name = "TOOL\nTELEKINESIS", link = "https://raw.githubusercontent.com/YuMAID369/TELEKINESIS-/refs/heads/main/Telekinesis%20Tool"},
     {name = "TP TOOL", link = "https://raw.githubusercontent.com/YuMAID369/TP-TOOL-v1/refs/heads/main/TP%20Tool"},
-    {name = "TOOL FLING\nAll SELECTV1", link = "https://raw.githubusercontent.com/YuMAID369/Atom-selector-/refs/heads/main/Target%20Kill"},
-    {name = "TOOL FLING\nAll SELECTV2", link = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER/refs/heads/main/SPWN%20KILL%20V2%20SELECT"},
+    {name = "FLING\nAll SELECT V1", link = "https://raw.githubusercontent.com/YuMAID369/Atom-selector-/refs/heads/main/Target%20Kill"},
+    {name = "FLING\nAll SELECTV2", link = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER/refs/heads/main/SPWN%20KILL%20V2%20SELECT"},
     {name = "SELECT\nMATTER TP", link = "https://raw.githubusercontent.com/YuMAID369/ToolSpwnTp/refs/heads/main/SPWNTPtool"},
     {name = "SELECT\nMATTER V3", link = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER-V3-/refs/heads/main/FLING%20V3%20TOOL%20SPWN"},
     -- Slots Vazios para preenchimento estético simétrico
