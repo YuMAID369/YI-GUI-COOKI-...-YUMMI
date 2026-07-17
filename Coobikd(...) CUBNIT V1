@@ -61,7 +61,7 @@ Create("UIStroke", MainFrame, {Color = Color3.fromRGB(255, 255, 255), Thickness 
 
 -- 3. CABEÇALHO E NAVEGAÇÃO
 local HeaderBar = Create("Frame", MainFrame, {Size = UDim2.new(1, 0, 0, 65), BackgroundTransparency = 1})
-local Title = Create("TextLabel", HeaderBar, {Size = UDim2.new(1, 0, 0, 50), Position = UDim2.new(0, 0, 0, 5), BackgroundTransparency = 1, Text = "Sobre o CUBNIT/ Spawnismo", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 22, Font = Enum.Font.LuckiestGuy, TextWrapped = true, TextXAlignment = Enum.TextXAlignment.Center, TextYAlignment = Enum.TextYAlignment.Center})
+local Title = Create("TextLabel", HeaderBar, {Size = UDim2.new(1, 0, 0, 50), Position = UDim2.new(0, 0, 0, 5), BackgroundTransparency = 1, Text = "Sobre o ᓵ⚍ʖリ╎ℸ ", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 28, Font = Enum.Font.Arcade, TextWrapped = true, TextXAlignment = Enum.TextXAlignment.Center, TextYAlignment = Enum.TextYAlignment.Center})
 local WhiteSeparator = Create("Frame", HeaderBar, {Name = "WhiteSeparator", Size = UDim2.new(1, -20, 0, 7), Position = UDim2.new(0.5, 0, 0, 58), AnchorPoint = Vector2.new(0.5, 0), BackgroundColor3 = Color3.fromRGB(255,255,255), BorderSizePixel = 0})
 
 local LeftBtn = Create("TextButton", HeaderBar, {Size = UDim2.new(0, 38, 0, 38), Position = UDim2.new(0, 10, 0, 10), BackgroundColor3 = Color3.fromRGB(255,255,255), Text = "<", TextColor3 = Color3.fromRGB(0,0,0), TextSize = 28, Font = Enum.Font.SourceSansBold, Visible = false, ZIndex = 10})
@@ -71,8 +71,26 @@ Create("UICorner", LeftBtn, {CornerRadius = UDim.new(0, 6)}); Create("UICorner",
 -- 4. PÁGINAS DE CONTEÚDO
 
 -- PÁGINA 1: ABOUT
-local PageAbout = Create("ScrollingFrame", MainFrame, {Size = UDim2.new(1, -20, 1, -145), Position = UDim2.new(0, 12, 0, 75), BackgroundTransparency = 1, CanvasSize = UDim2.new(0, 0, 0, 420), ScrollBarThickness = 3, ScrollingDirection = Enum.ScrollingDirection.Y, Visible = true})
-Create("TextLabel", PageAbout, {Size = UDim2.new(1, -20, 0, 520), BackgroundTransparency = 1, Text = "[CUBNIT // ACCESS LOG]\nSe você encontrou esta interface, significa que o Spawn permitiu sua entrada.\n\nPoucos conseguem enxergar os sinais escondidos entre os mundos. Menos ainda conseguem compreender o que realmente existe por trás do Spawn.\n\nO projeto CUBNIT não foi criado apenas como uma ferramenta. Ele é um fragmento em desenvolvimento de algo maior.\nOs antigos exploradores acreditavam que certos artefates esquecidos do Roblox carregavam propriedades anormais. Ferramentas removidas. Sistemas abandonados. Objetos capazes de alterar o equilíbrio entre ordem e caos.\n\nSe desejar explorar os fragmentos em desenvolvimento e, consequentemente, não os quiser mais, clique duas vezes rapidamente para fechar o fragmento.", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 19, Font = Enum.Font.SourceSansBold, TextWrapped = true, TextXAlignment = Enum.TextXAlignment.Left, TextYAlignment = Enum.TextYAlignment.Top})
+local PageAbout = Create("ScrollingFrame", MainFrame, {Size = UDim2.new(1, -20, 1, -145), Position = UDim2.new(0, 12, 0, 75), BackgroundTransparency = 1, CanvasSize = UDim2.new(0, 0, 0, 400), ScrollBarThickness = 3, ScrollingDirection = Enum.ScrollingDirection.Y, Visible = true})
+
+Create("UIPadding", PageAbout, {
+    PaddingLeft = UDim.new(0, 6),
+    PaddingRight = UDim.new(0, 12),
+    PaddingTop = UDim.new(0, 5)
+})
+
+local AboutTextLabel = Create("TextLabel", PageAbout, {
+    Size = UDim2.new(1, 0, 0, 550), 
+    BackgroundTransparency = 1, 
+    Text = '<font align="justify">Aba ᓵ⚍ʖリ╎ℸ ̣// ACCESS LOG] O Project ᓵ⚍ʖリ╎ℸ consiste na criação de um script com funções universais, desenvolvido para se expandir por diversos jogos da plataforma Roblox. O objetivo do projeto é explorar, desenvolver e reunir todo tipo de sistema, ferramenta e ideia que possa ser aplicada em diferentes experiências, sempre trazendo novas funcionalidades e buscando inovação.<br/><br/>Além de criar sistemas para diversos jogos, o Project ᓵ⚍ʖリ╎ℸ também tem como objetivo construir uma comunidade de desenvolvedores interessados em compartilhar conhecimento, ensinar o desenvolvimento de projetos e trocar experiências sobre Vibe Coding.<br/><br/>Se você deseja fazer parte do Project ᓵ⚍ʖae╎ℸ, conhecer mais sobre a iniciativa ou contribuir com ideias, desenvolver sistemas, criar designs ou acompanhar sua evolução, entre no servidor do Discord do Project ᓵ⚍ʖリ╎ℸ.<br/><br/>( Signature ᓭ!¡∴リ )</font>', 
+    TextColor3 = Color3.fromRGB(255,255,255), 
+    TextSize = 15, 
+    Font = Enum.Font.Arcade, 
+    TextWrapped = true, 
+    RichText = true,
+    TextXAlignment = Enum.TextXAlignment.Left, 
+    TextYAlignment = Enum.TextYAlignment.Top
+})
 
 -- PÁGINA 2: SCRIPTS (BROOKHAVEN)
 local PageScripts = Create("ScrollingFrame", MainFrame, {Size = UDim2.new(1, -15, 1, -145), Position = UDim2.new(0, 8, 0, 75), BackgroundTransparency = 1, Visible = false, CanvasSize = UDim2.new(0, 0, 0, 450), ScrollBarThickness = 3})
@@ -87,7 +105,7 @@ local WhiteBarSeparator = Create("Frame", MainFrame, {Name = "WhiteBarSeparator"
 
 -- 4.1 DECLARAÇÃO DO RODAPÉ
 local FooterBar = Create("Frame", MainFrame, {Size = UDim2.new(1, 0, 0, 65), Position = UDim2.new(0, 0, 1, -65), BackgroundColor3 = Color3.fromRGB(22,22,22), BorderSizePixel = 0})
-local CloseBtn = Create("TextButton", FooterBar, {Name = "CloseBtn", Size = UDim2.new(0, 160, 0, 42), Position = UDim2.new(0.5, -80, 0.5, -21), BackgroundColor3 = Color3.fromRGB(45,45,45), Text = "Close", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 24, Font = Enum.Font.SourceSansBold})
+local CloseBtn = Create("TextButton", FooterBar, {Name = "CloseBtn", Size = UDim2.new(0, 160, 0, 42), Position = UDim2.new(0.5, -80, 0.5, -21), BackgroundColor3 = Color3.fromRGB(45,45,45), Text = "FECHAR UI", TextColor3 = Color3.fromRGB(255,255,255), TextSize = 22, Font = Enum.Font.Arcade})
 Create("UICorner", CloseBtn, {CornerRadius = UDim.new(0, 6)})
 Create("UIStroke", CloseBtn, {Color = Color3.fromRGB(150,150,150)})
 CloseBtn.MouseButton1Click:Connect(function() 
@@ -96,9 +114,24 @@ CloseBtn.MouseButton1Click:Connect(function()
 end)
 
 local function CreateSymbol(pos)
-    Create("ImageLabel", FooterBar, {Size = UDim2.new(0, 45, 0, 45), Position = pos, BackgroundTransparency = 1, Image = "rbxassetid://130275641191868", ImageColor3 = Color3.fromRGB(255,255,255)})
+    return Create("ImageLabel", FooterBar, {Size = UDim2.new(0, 45, 0, 45), Position = pos, BackgroundTransparency = 1, Image = "rbxassetid://130275641191868", ImageColor3 = Color3.fromRGB(255,255,255)})
 end
 CreateSymbol(UDim2.new(0, 15, 0.5, -22)); CreateSymbol(UDim2.new(1, -60, 0.5, -22))
+
+-- Botão do Discord posicionado ao lado do símbolo SPWN esquerdo
+local DiscordBtn = Create("ImageButton", FooterBar, {
+    Name = "DiscordBtn",
+    Size = UDim2.new(0, 45, 0, 45),
+    Position = UDim2.new(0, 65, 0.5, -22), 
+    BackgroundTransparency = 1,
+    Image = "rbxassetid://135394655692633",
+    Visible = true 
+})
+
+DiscordBtn.MouseButton1Click:Connect(function()
+    PlayClickSound()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/YuMAID369/Join-Discordv1/refs/heads/main/Discord%20Open"))()
+end)
 
 
 -- Sistema de Navegação Dinâmica entre Páginas
@@ -109,21 +142,26 @@ local function updateNavigation(page)
     PageScripts.Visible = (page == 2)
     PageTools.Visible = (page == 3)
     WhiteBarSeparator.Visible = (page == 3)
+    
+    DiscordBtn.Visible = (page == 1)
 
     if page == 1 then
-        Title.Text = "Sobre o CUBNIT/Spawnismo"
+        Title.Text = "Sobre o ᓵ⚍ʖリ╎ℸ "
+        Title.TextSize = 28
         Title.Size = UDim2.new(1, 0, 0, 50)
         Title.Position = UDim2.new(0, 0, 0, 5)
         LeftBtn.Visible = false
         RightBtn.Visible = true
     elseif page == 2 then
         Title.Text = "BROOKHAVEN"
+        Title.TextSize = 40
         Title.Size = UDim2.new(1, 0, 0, 50)
         Title.Position = UDim2.new(0, 0, 0, 5)
         LeftBtn.Visible = true
         RightBtn.Visible = true
     elseif page == 3 then
-        Title.Text = "Painel Tool ( Spwn Shortcuts )"
+        Title.Text = "Painel Tool"
+        Title.TextSize = 35
         Title.Size = UDim2.new(1, -100, 0, 50)
         Title.Position = UDim2.new(0, 50, 0, 5)
         LeftBtn.Visible = true
@@ -147,6 +185,7 @@ end)
 
 -- 5. BANCO DE DADOS DOS SCRIPTS (Aba 2)
 local ScriptData = {
+    ["DELETE PLAYER Anti NUKE"] = "https://raw.githubusercontent.com/YuMAID369/Anti-PLAYER-/refs/heads/main/REMOVE%20PLAYER", -- [ADICIONADO]
     ["Summoner Vehicles Panel"] = "https://raw.githubusercontent.com/YuMAID369/VEHICLE-KILL-PANEL-/refs/heads/main/Summoner%20Vehicles%20V1%20KILL",
     ["Notepad notes v1"] = "https://raw.githubusercontent.com/YuMAID369/Bloco-de-Notas-SpawnCUB/refs/heads/main/Notebook%20Notes",
     ["Cronômetro V1"] = "https://raw.githubusercontent.com/YuMAID369/Cron-metro-Spwn-v1/refs/heads/main/00%3A00%3A00",
@@ -181,14 +220,14 @@ local ScriptData = {
     ["VIEW V2 VRP"] = "https://raw.githubusercontent.com/YuMAID369/UI-View-V2-VPR/refs/heads/main/V2View%20VPR"
 }
 
--- Geração da Aba 2 agora com LuckiestGuy habilitado
+-- Geração da Aba 2 (Fonte Arcade)
 for name, link in pairs(ScriptData) do
     local btn = Create("TextButton", PageScripts, {
         BackgroundColor3 = Color3.fromRGB(35,35,35), 
         Text = name, 
         TextColor3 = Color3.fromRGB(255,255,255), 
-        TextSize = 14, 
-        Font = Enum.Font.LuckiestGuy, 
+        TextSize = 17, 
+        Font = Enum.Font.Arcade, 
         TextWrapped = true,
         TextXAlignment = Enum.TextXAlignment.Center,
         TextYAlignment = Enum.TextYAlignment.Center
@@ -210,7 +249,6 @@ local ToolData = {
     {name = "FLING\nAll SELECT V2", link = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER/refs/heads/main/SPWN%20KILL%20V2%20SELECT"},
     {name = "SELECT\nMATTER TP", link = "https://raw.githubusercontent.com/YuMAID369/ToolSpwnTp/refs/heads/main/SPWNTPtool"},
     {name = "SELECT\nMATTER V3", link = "https://raw.githubusercontent.com/YuMAID369/SELECT-MATTER-V3-/refs/heads/main/FLING%20V3%20TOOL%20SPWN"},
-    -- Slots Vazios para preenchimento estético simétrico
     {name = "", link = ""},
     {name = "", link = ""},
     {name = "", link = ""},
@@ -218,13 +256,14 @@ local ToolData = {
     {name = "", link = ""},
 }
 
+-- Geração da Aba 3
 for _, data in ipairs(ToolData) do
     local toolBtn = Create("TextButton", PageTools, {
         BackgroundColor3 = Color3.fromRGB(45, 45, 45),
         Text = data.name,
         TextColor3 = Color3.fromRGB(255, 255, 255),
-        TextSize = 16,
-        Font = Enum.Font.LuckiestGuy,
+        TextSize = 16, 
+        Font = Enum.Font.LuckiestGuy, 
         TextWrapped = true,
         TextXAlignment = Enum.TextXAlignment.Center,
         TextYAlignment = Enum.TextYAlignment.Center
