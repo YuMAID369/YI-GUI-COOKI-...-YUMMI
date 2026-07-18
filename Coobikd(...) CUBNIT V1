@@ -93,7 +93,7 @@ local AboutTextLabel = Create("TextLabel", PageAbout, {
 })
 
 -- PÁGINA 2: SCRIPTS (BROOKHAVEN)
-local PageScripts = Create("ScrollingFrame", MainFrame, {Size = UDim2.new(1, -15, 1, -145), Position = UDim2.new(0, 8, 0, 75), BackgroundTransparency = 1, Visible = false, CanvasSize = UDim2.new(0, 0, 0, 450), ScrollBarThickness = 3})
+local PageScripts = Create("ScrollingFrame", MainFrame, {Size = UDim2.new(1, -15, 1, -145), Position = UDim2.new(0, 8, 0, 75), BackgroundTransparency = 1, Visible = false, CanvasSize = UDim2.new(0, 0, 0, 510), ScrollBarThickness = 3})
 Create("UIGridLayout", PageScripts, {CellSize = UDim2.new(0, 96, 0, 52), CellPadding = UDim2.new(0, 5, 0, 6), HorizontalAlignment = Enum.HorizontalAlignment.Center})
 
 -- PÁGINA 3: PAINEL TOOL
@@ -226,7 +226,7 @@ for name, link in pairs(ScriptData) do
         BackgroundColor3 = Color3.fromRGB(35,35,35), 
         Text = name, 
         TextColor3 = Color3.fromRGB(255,255,255), 
-        TextSize = 17, 
+        TextSize = 15, 
         Font = Enum.Font.Arcade, 
         TextWrapped = true,
         TextXAlignment = Enum.TextXAlignment.Center,
