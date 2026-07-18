@@ -82,7 +82,7 @@ Create("UIPadding", PageAbout, {
 local AboutTextLabel = Create("TextLabel", PageAbout, {
     Size = UDim2.new(1, 0, 0, 550), 
     BackgroundTransparency = 1, 
-    Text = '<font align="justify">Aba ᓵ⚍ʖリ╎ℸ ̣// ACCESS LOG] O Project ᓵ⚍ʖリ╎ℸ consiste na criação de um script com funções universais, desenvolvido para se expandir por diversos jogos da plataforma Roblox. O objetivo do projeto é explorar, desenvolver e reunir todo tipo de sistema, ferramenta e ideia que possa ser aplicada em diferentes experiências, sempre trazendo novas funcionalidades e buscando inovação.<br/><br/>Além de criar sistemas para diversos jogos, o Project ᓵ⚍ʖリ╎ℸ também tem como objetivo construir uma comunidade de desenvolvedores interessados em compartilhar conhecimento, ensinar o desenvolvimento de projetos e trocar experiências sobre Vibe Coding.<br/><br/>Se você deseja fazer parte do Project ᓵ⚍ʖae╎ℸ, conhecer mais sobre a iniciativa ou contribuir com ideias, desenvolver sistemas, criar designs ou acompanhar sua evolução, entre no servidor do Discord do Project ᓵ⚍ʖリ╎ℸ.<br/><br/>( Signature ᓭ!¡∴リ )</font>', 
+    Text = '<font align="justify">Aba ᓵ⚍ʖリ╎ℸ ̣// ACCESS LOG] O Project ᓵ⚍ʖリ╎ℸ consiste na criação de um script com funções universais, desenvolvido para se expandir por diversos jogos da plataforma Roblox. O objective do projeto é explorar, desenvolver e reunir todo tipo de sistema, ferramenta e ideia que possa ser aplicada em diferentes experiências, sempre trazendo novas funcionalidades e buscando inovação.<br/><br/>Além de criar sistemas para diversos jogos, o Project ᓵ⚍ʖリ╎ℸ também tem como objetivo construir uma comunidade de desenvolvedores interessados em compartilhar conhecimento, ensinar o desenvolvimento de projetos e trocar experiências sobre Vibe Coding.<br/><br/>Se você deseja fazer parte do Project ᓵ⚍ʖae╎ℸ, conhecer mais sobre a iniciativa ou contribuir com ideias, desenvolver sistemas, criar designs ou acompanhar sua evolução, entre no servidor do Discord do Project ᓵ⚍ʖリ╎ℸ.<br/><br/>( Signature ᓭ!¡∴リ )</font>', 
     TextColor3 = Color3.fromRGB(255,255,255), 
     TextSize = 15, 
     Font = Enum.Font.Arcade, 
@@ -142,7 +142,7 @@ local function updateNavigation(page)
     PageScripts.Visible = (page == 2)
     PageTools.Visible = (page == 3)
     WhiteBarSeparator.Visible = (page == 3)
-    
+
     DiscordBtn.Visible = (page == 1)
 
     if page == 1 then
@@ -185,7 +185,8 @@ end)
 
 -- 5. BANCO DE DADOS DOS SCRIPTS (Aba 2)
 local ScriptData = {
-    ["DELETE PLAYER Anti NUKE"] = "https://raw.githubusercontent.com/YuMAID369/Anti-PLAYER-/refs/heads/main/REMOVE%20PLAYER", -- [ADICIONADO]
+    ["CLOCK CREATOR - PROPs"] = "https://raw.githubusercontent.com/YuMAID369/CLOCK-Creator-Project-PROP-SPWN/refs/heads/main/CLOCK%20Creator%20Project%20PROP%20SPWN%20CLIENT%20V1", -- [ADICIONADO]
+    ["DELETE PLAYER Anti NUKE"] = "https://raw.githubusercontent.com/YuMAID369/Anti-PLAYER-/refs/heads/main/REMOVE%20PLAYER",
     ["Summoner Vehicles Panel"] = "https://raw.githubusercontent.com/YuMAID369/VEHICLE-KILL-PANEL-/refs/heads/main/Summoner%20Vehicles%20V1%20KILL",
     ["Notepad notes v1"] = "https://raw.githubusercontent.com/YuMAID369/Bloco-de-Notas-SpawnCUB/refs/heads/main/Notebook%20Notes",
     ["Cronômetro V1"] = "https://raw.githubusercontent.com/YuMAID369/Cron-metro-Spwn-v1/refs/heads/main/00%3A00%3A00",
